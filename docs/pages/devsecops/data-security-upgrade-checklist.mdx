@@ -1,0 +1,194 @@
+---
+title: "Data Security Checklist | Security Alliance"
+description: "Checklist for Web3 data security: encrypted tested backups, access controls, encryption at rest and in transit, and third-party data clauses."
+tags:
+  - Engineer/Developer
+  - Operations & Strategy
+  - Smart Contracts
+contributors:
+  - role: wrote
+    users: [quillaudits, dickson]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: [mattaereal]
+---
+
+import { TagList, AttributionList, ContributeFooter, Checklist } from '../../../components'
+
+# Data Security Checklist
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Protect Web3 operational data with encrypted, tested
+> backups; strong access and encryption controls; and contractual plus
+> technical limits on third parties that touch production or off-chain state.
+
+Use this checklist when standing up or reviewing controls for critical databases,
+configurations, off-chain indexers, and third-party integrations. Items are
+grouped by concern; complete each group for high-value systems before go-live
+and re-check after material architecture changes.
+
+## 1. Data Backup & Disaster Recovery
+
+Protecting critical data through automated, encrypted backups and tested recovery procedures is essential for business
+continuity in Web3 operations.
+
+<Checklist id="1-data-backup-disaster-recovery">
+- [ ]  **Automated backups for critical databases, configurations, and off-chain state**
+  - Configure automated backup schedules for all mission-critical systems, including databases (PostgreSQL, MongoDB,
+    etc.), application configurations, environment variables, and off-chain state data (indexer databases, cache
+    layers, API states). In Web3 contexts, this includes subgraph databases, oracle data feeds, and transaction
+    indexer states. Use tools like AWS Backup, Google Cloud Backup, or open-source solutions like Restic or
+    BorgBackup. Schedule daily incremental backups and weekly full backups at a minimum.
+
+- [ ]  **Encrypted backups at rest and in transit**
+  - All backup data must be encrypted both when stored (at rest) and during transmission (in transit). Use AES-256
+    encryption for stored backups and TLS 1.3 for transmission. This prevents unauthorized access even if backup
+    storage is compromised. Cloud providers like AWS S3 offer server-side encryption (SSE-S3, SSE-KMS), while
+    self-hosted solutions should use encrypted volumes (LUKS, dm-crypt) or application-level encryption.
+
+- [ ]  **Geographically separate storage locations**
+  - Store backup copies in multiple geographic regions to protect against regional disasters, data center failures, or
+    jurisdictional issues. For example, maintain primary backups in US-East and secondary copies in EU-West. This is
+    critical for Web3 projects operating globally. Use different cloud providers or regions (AWS + Google Cloud, or
+    AWS us-east-1 + aws eu-west-1) to avoid single points of failure.
+
+- [ ]  **Retention and versioning policies**
+  - Implement clear retention schedules that balance compliance requirements, operational needs, and storage costs. A
+    typical policy: keep daily backups for 30 days, weekly backups for 3 months, monthly backups for 1 year. Enable
+    versioning to protect against ransomware or accidental deletion. For blockchain projects, consider longer
+    retention for deployment artifacts, contract ABIs, and transaction history that may be needed for audits or
+    investigations.
+
+- [ ]  **Regular restoration testing (quarterly minimum)**
+  - Backups are only valuable if they can be restored. Conduct full restoration tests at least quarterly to verify
+    backup integrity and team familiarity with recovery procedures. Document restoration time objectives (RTO) and
+    recovery point objectives (RPO). Practice restoring to a test environment, validate data integrity, and measure
+    how long recovery takes. This identifies backup corruption, configuration drift, or gaps in documentation before
+    a real disaster occurs.
+
+- [ ]  **Role-Based Access Control (RBAC) for backup access**
+  - Limit backup access to only those who need it using RBAC principles. Separate read-only access (for restoration
+    testing) from write/delete permissions (for backup management). In cloud environments, use IAM policies to
+    restrict S3 bucket access, database backup permissions, and KMS key usage. Require multi-factor authentication
+    for any backup modification or deletion operations. Log all backup access for audit trails.
+
+- [ ]  **Auditable backup logs and monitoring**
+  - Enable comprehensive logging for all backup operations: creation, access, restoration, deletion, and failures.
+    Send logs to a centralized SIEM (Security Information and Event Management) system or logging platform like
+    Splunk, DataDog, or ELK stack. Set up alerts for backup failures, unauthorized access attempts, or unusual
+    deletion activities. For compliance, retain backup logs for at least 1 year and ensure they are tamper-resistant
+    using immutable or write-once logging/storage controls where appropriate.
+</Checklist>
+
+## 2. Secure Storage & Encryption
+
+Proper classification and encryption of sensitive data protects user privacy, prevents credential theft, and ensures
+regulatory compliance.
+
+<Checklist id="2-secure-storage-encryption">
+- [ ]  **Sensitive data classification (PII, credentials, secrets, API keys)**
+  - Conduct a data inventory and classify all data by sensitivity: Public (marketing materials), Internal (business
+    data), Confidential (user PII, financial records), and Restricted (credentials, private keys, secrets). In Web3
+    projects, Restricted data includes wallet private keys, API keys for infrastructure providers (Infura, Alchemy),
+    database credentials, session tokens, and OAuth secrets. Document what data you store, where it's stored, who has
+    access, and its classification level. This drives encryption decisions and access controls.
+
+- [ ]  **Encryption at rest using AES-256 or equivalent**
+  - Encrypt all sensitive data at rest using industry-standard AES-256 encryption. For databases, enable Transparent
+    Data Encryption (TDE) in PostgreSQL, MySQL, or MongoDB. For file storage, use encrypted volumes (AWS EBS
+    encryption, Google Cloud persistent disk encryption) or application-level encryption. Web3 projects must encrypt
+    wallet keystores, seed phrases (if temporarily stored during key ceremonies), and smart contract deployment
+    private keys. Never store sensitive data in plaintext.
+
+- [ ]  **Key Management Systems (KMS) or Hardware Security Modules (HSM)**
+  - Use dedicated KMS or HSM solutions to generate, store, and manage encryption keys securely. Cloud providers offer
+    managed KMS (AWS KMS, Google Cloud KMS, Azure Key Vault) that provide FIPS 140-2 Level 2/3 validation. For
+    higher security requirements or regulatory compliance, use HSMs (FIPS 140-2 Level 3/4). In Web3, KMS is critical
+    for securing deployment keys, multisig signer keys, and oracle operator keys. Never hardcode encryption keys in
+    code or configuration files.
+
+- [ ]  **Regular key rotation schedules**
+  - Rotate encryption keys on a regular schedule to limit the impact of potential key compromise. Define key rotation
+    schedules based on asset criticality, exposure, provider capabilities, and operational risk. Implement automated
+    key rotation where possible (AWS KMS supports automatic rotation). For Web3 projects, rotate API keys for
+    infrastructure providers every 90 days, database credentials every 180 days, and deployment keys after major
+    releases. Document rotation procedures and maintain key version history.
+
+- [ ]  **Enforce TLS 1.2+ for all communications**
+  - Mandate TLS 1.2 or higher (preferably TLS 1.3) for all network communications. Disable older protocols (SSL, TLS
+    1.0/1.1) that have known vulnerabilities. Configure web servers (Nginx, Apache), load balancers, and APIs to
+    require strong cipher suites (AES-GCM, ChaCha20-Poly1305). In Web3, this applies to RPC endpoints, API servers,
+    admin dashboards, and indexer queries. Use tools like SSL Labs to verify TLS configuration quality and scan for
+    weaknesses.
+
+- [ ]  **No hardcoded secrets in code or configuration files**
+  - Never commit secrets, API keys, private keys, passwords, or credentials to version control systems. Use
+    environment variables, secret management systems (HashiCorp Vault, AWS Secrets Manager, Doppler), or encrypted
+    configuration files. Scan repositories with tools like git-secrets, TruffleHog, or GitHub's secret scanning to
+    detect accidentally committed credentials. For Web3 projects, use hardware wallets or MPC systems for deployment
+    keys rather than filesystem-stored private keys. Implement pre-commit hooks to prevent secret commits.
+</Checklist>
+
+## 3. Third-Party Integrations
+
+Web3 projects rely heavily on external services—from RPC providers to cloud infrastructure. Properly vetting and
+securing these integrations prevents supply chain attacks and data breaches.
+
+<Checklist id="3-third-party-integrations">
+- [ ]  **Maintain comprehensive inventory of all services and integrations**
+  - Document every third-party service your project uses: infrastructure (AWS, Google Cloud, Vercel), blockchain
+    services (Infura, Alchemy, QuickNode), analytics (Mixpanel, Amplitude), monitoring (DataDog, Sentry),
+    communication (Slack, Discord bots), and development tools (GitHub, CircleCI). Include: service name, purpose,
+    data access level, authentication method, contract/pricing tier, and responsible team member. Update this
+    inventory monthly and review quarterly. This visibility is essential for incident response and security
+    assessments.
+
+- [ ]  **Security posture review and compliance verification (SOC 2, ISO 27001)**
+  - Before integrating a service, verify its security credentials. Require at minimum SOC 2 Type II attestation for
+    critical services handling sensitive data. For highly regulated environments, require ISO 27001, PCI DSS, or
+    HIPAA compliance as applicable. Review audit reports, penetration test summaries, and security whitepapers. For
+    blockchain infrastructure providers, verify their node security practices, key management procedures, and
+    incident response capabilities. Re-evaluate annually or after major security incidents.
+
+- [ ]  **Principle of least privilege access**
+  - Grant third-party integrations only the minimum permissions required for their function. For cloud services, use
+    IAM roles with scoped permissions rather than root/admin access. For APIs, use role-based access with limited
+    scopes (read-only where possible). Example: a monitoring service needs read-only metrics access, not write access
+    to databases. For blockchain services, separate RPC endpoints for read operations (public) from write operations
+    (deployment, requiring authentication). Regularly audit and reduce over-privileged integrations.
+
+- [ ]  **Regular credential rotation for third-party services**
+  - Rotate API keys, OAuth tokens, and access credentials for all third-party integrations on a regular schedule.
+    Critical services (infrastructure, payment, and auth providers) should rotate quarterly. Lower-risk services can
+    rotate annually. Use secret management tools to automate rotation where possible. When team members leave or
+    change roles, immediately rotate any credentials they had access to. For Web3 projects, rotate RPC provider API
+    keys, infrastructure provider access keys, and deployment system credentials regularly.
+
+- [ ]  **Dependency vulnerability monitoring and patching**
+  - Continuously monitor all third-party dependencies (npm packages, Python libraries, Docker images) for known
+    vulnerabilities. Use automated tools like Dependabot, Snyk, or npm audit in CI/CD pipelines. For Web3 projects,
+    pay special attention to Web3 libraries (ethers.js, web3.js, viem), cryptographic libraries, and smart contract
+    dependencies (OpenZeppelin Contracts). Establish patching SLAs based on exploitability, exposure, asset
+    criticality, and compensating controls. Test patches in staging before production deployment.
+
+- [ ]  **Data protection clauses in vendor agreements**
+  - Ensure all vendor contracts include strong data protection language. Key clauses: data ownership (you own your
+    data), breach notification (vendor must notify within 24-48 hours), data deletion (vendor must delete data upon
+    contract termination), subprocessor restrictions (vendor must disclose and get approval for subcontractors), audit
+    rights (you can audit vendor's security practices), and liability for breaches. For GDPR/CCPA compliance, require
+    Data Processing Agreements (DPAs). Review contracts annually and before renewals.
+</Checklist>
+
+## Further reading
+
+- [DevSecOps overview](/devsecops/overview): how the pages of this framework fit together
+- [Full Disk Encryption](/encryption/full-disk-encryption): protecting the backups this checklist creates
+- [Vendor Risk Management](/supply-chain/vendor-risk-management): assessing the third-party integrations listed here
+- [Cloud Infrastructure](/infrastructure/cloud): storage, key management, and access controls in the provider
+
+---
+
+<ContributeFooter />

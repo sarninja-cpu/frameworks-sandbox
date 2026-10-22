@@ -1,0 +1,199 @@
+---
+title: "Safe Multisig Verification | SEAL"
+description: "Safe multisig transaction verification: hash verification using CLI tools or OpenZeppelin Safe Utils, Tenderly simulations, calldata review"
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Operations & Strategy
+contributors:
+  - role: wrote
+    users: [isaac, geoffrey, louis, pablo, dickson]
+  - role: reviewed
+    users: [pinalikefruit, engn33r, ElliotFriedman]
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../../components'
+
+# Safe Multisig: Step-by-Step Verification
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Safe verification requires matching transaction hashes and decoded intent across independent
+> channels before any signature.
+
+Hash verification protects against UI compromise attacks where malicious transactions are injected into the signing
+flow. The goal is to ensure that what you see in the UI matches what your hardware wallet actually signs.
+
+## General Signing Guidelines
+
+### Basic Rules
+
+- **Use hardware wallet** & back up the seed phrase
+- **Use a separate browser or browser profile for signing** to minimize extension/session cross-contamination and reduce
+  attack surface on your primary profile
+- **Secure signing environment**: For maximum security, all signing activities should be performed on a dedicated,
+  air-gapped, or hardened device running a secure OS. Using a primary work laptop significantly increases the risk of
+  malware interference.
+- **Verify the address** according to the procedures on this page upon joining any multisig
+- **Check transactions** you see in the queue - if unclear what the transaction should do and why, don't sign it and ask
+  for explanation
+- **Require "how to check" guide** for every transaction
+- **Verify addresses & sums** through third party sources (message from fellow multisig co-signer is not sufficient)
+- **Communicate transaction status**: Tell other signers whether the transaction can be executed right away or not
+- **Confirm after signing**: Communicate once you've checked and signed ("checked, signed, X more required")
+- **Last signer executes**: If the transaction can be executed right away, the last signer does it. If they can't
+  execute, communicate with other signers
+- **Re-verify before execution**: If executing an already signed transaction, check it as if you were signing it
+
+## Verify You Are on the Correct Safe
+
+Before interacting with any Safe, verify you are on the correct Safe address. Anyone can create a Safe and add you
+as an owner without your consent, and attackers create Safes with addresses designed to look similar to your
+legitimate Safes (matching first and last 4 characters). Always navigate to your Safe from a bookmarked or verified
+address, not from the Safe app dashboard list. See
+[Address Poisoning](/wallet-security/secure-multisig-best-practices#address-poisoning-and-permissionless-safe-additions)
+for details.
+
+## Key Definitions (EVM)
+
+- Domain Hash (EIP-712 domain separator)
+- Message Hash (raw hash of transaction params)
+- SafeTxHash (combined domain + message hash)
+
+## Recommended Tools
+
+Please see the [Tools & Resources](/wallet-security/tools-and-resources) page for a list of recommended tools.
+
+## Verification Procedure
+
+### 1) Transaction Preparation
+
+- Use delegated proposer (recommended)
+- Ensure the transaction is proposed in the Safe API
+- Record Safe address, network, nonce
+
+### 2) Simulation Testing
+
+- Run Tenderly simulation from Safe UI; verify expected events and transfers
+- If using a timelock, expect a staged transaction event rather than execution
+
+Warning: Simulations can be spoofed - always apply critical thinking and good judgement during
+transaction reviews since a simulation can display one thing and then do something else entirely when
+actually executed on chain
+
+![Tenderly simulation setup](https://frameworks-static.s3.us-east-2.amazonaws.com/images/multisig-for-protocols/tenderly-simulation-setup.png)
+
+Manual simulation (when needed):
+
+1. Paste the contract address in the contract field
+2. Paste the calldata from the Safe UI or from the hash verification tool
+3. Specify the Safe address as the From address
+
+Note: For complex batch transactions that include a delegateCall to multisend, manual simulations may not be feasible.
+
+### 3) Hash & Calldata Verification
+
+#### Using the CLI Tool
+
+```bash
+./safe_hashes.sh --network [NETWORK] --address [SAFE_ADDRESS] --nonce [NONCE]
+```
+
+The CLI tool pulls the queued transaction from the Safe API for verification. If Safe infrastructure is compromised,
+it's possible the tool will show a hash that matches the UI, but the transaction is still not what you intend to sign.
+However, if you also verify the calldata output by the tool, you can be sure you are signing the correct data.
+
+**Interactive mode** (no Safe API dependency): Use `--interactive` to enter all transaction details manually. Note that
+in interactive mode the tool does not decode the calldata, so it's important to perform the calldata verification in
+step 5.
+
+#### Using the Web UI (OpenZeppelin Safe Utils)
+
+1. Navigate to OpenZeppelin Safe Utils
+2. Enter Safe address (checksummed)
+3. Select network and enter nonce
+4. Review generated hashes and decoded calldata
+
+Important: Both tools require checksummed addresses.
+
+- ✅ Correct: `0xA79C6968E3c75aE4eF388370d1f142720D498fEC`
+- ❌ Incorrect: `0xa79c6968e3c75ae4ef388370d1f142720d498fec`
+
+### 4) Hash Comparison
+
+- Message Hash on tools must match hardware wallet display
+- Domain Hash ensures correct Safe
+- SafeTxHash for nested Safe approvals
+- For extra security, calculate hashes across multiple devices and operating systems to ensure your computer is not
+  compromised. When signing, verify the **entire** hash displayed on your hardware wallet, not just the first and last
+  few characters.
+
+### 5) Calldata Review
+
+Hash verification confirms you are signing the right transaction (the one that was proposed), but the hash alone does
+not tell you what the transaction actually does. You need to decode the calldata to understand the on-chain action.
+Never sign a transaction you do not understand.
+
+#### How Calldata Works
+
+EVM calldata consists of:
+
+- **Function selector** (first 4 bytes): Identifies which function is being called. For example, `0xa9059cbb` is the
+  selector for `transfer(address,uint256)`.
+- **ABI-encoded parameters** (remaining bytes): The function arguments encoded according to the Solidity ABI
+  specification.
+
+For batch transactions using MultiSend, the calldata contains multiple packed transactions. Each must be individually
+decoded and reviewed.
+
+#### Decoding Steps
+
+1. Copy the calldata from the Safe UI or from the hash verification tool
+2. Paste into a decoder (e.g., SwissKnife Calldata Decoder, Foundry `cast decode-calldata`)
+3. Verify the function name, target address, and parameters match the expected values
+4. For protocol-specific functions, consider building internal decoding tooling tailored to your contracts for
+   human-readable output
+
+#### Common Red Flags
+
+- **`DELEGATECALL` (operation type 1)**: Gives the target contract full control over the Safe's storage. Should only
+  appear when the target is a known, audited module.
+- **Unexpected `approve` or `setApprovalForAll` calls**: Could grant unlimited token spending to an attacker's address.
+- **`MultiSend` when a single action was expected**: Extra calls could be hidden in a batch.
+- **Unfamiliar function selectors**: If you cannot identify the function being called, do not sign until you verify it.
+- **Parameters that do not match the briefing**: Wrong recipient, wrong amount, wrong contract address.
+- **Mismatched target contract**: The function call is going to a different contract than described.
+- **Unverified contract being called**: If the target contract's source is not verified on the block explorer, you
+  cannot confirm what the decoded function actually does. Treat any call into an unverified contract as a stop sign
+  until the source is published and reviewed.
+- **Calldata that contradicts the simulation**: The decoded function and the observed effect must agree. If the
+  selector decodes to `transfer(address,uint256)` but the simulation shows no token movement (or moves a different
+  asset), the contract is not behaving as its interface claims. The Bybit theft worked this way at the contract level:
+  an unverified contract on Etherscan whose calldata decoded to a benign-looking operation while it actually executed
+  something else. Always reconcile the decoded calldata against the simulated effect before signing.
+
+### Tool Diversity Recommendation
+
+Signers should not all use identical tools. Cross-verify results between multiple tools (CLI and web) for critical
+operations.
+
+### Special Cases: Nested Safes
+
+- Use `--nested-safe-address` and `--nested-safe-nonce` to verify approveHash flows
+
+## Further reading
+
+- [Verifying Multisig Transactions](/wallet-security/signing-and-verification/secure-multisig-signing-process): the
+  two-phase process this walkthrough implements
+- [Secure Multisig Best Practices](/wallet-security/secure-multisig-best-practices): signer and threshold design behind
+  the signing flow
+- [Backup Signing & Infrastructure](/multisig-for-protocols/backup-signing-and-infrastructure): fallback paths when the
+  usual signing route is unavailable
+- [Emergency Procedures](/multisig-for-protocols/emergency-procedures): what to do when verification reveals a problem
+
+---
+
+<ContributeFooter />

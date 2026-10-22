@@ -1,0 +1,58 @@
+---
+title: "Secure Authentication | SEAL"
+description: "Require MFA with hardware security keys over SMS, harden SSO entry points, enforce strong passwords with managers, and monitor suspicious sign-ins."
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+  - HR
+contributors:
+  - role: wrote
+    users: []
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Secure Authentication
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Authentication must prove identity with phishing-resistant factors where available — prefer
+> hardware-backed MFA over SMS, and protect the SSO account that unlocks everything else.
+
+Secure authentication verifies that only authorized people and services obtain sessions. Weak factors, SMS phishing,
+and unmonitored login anomalies are standard entry points into Web3 organization tooling and funds-adjacent systems.
+
+## Core methods
+
+- **Multi-factor authentication (MFA):** Require multiple independent factors. Do **not** rely on SMS as the primary
+  second factor for sensitive systems; prefer hardware security keys (for example YubiKey-class devices) or other
+  phishing-resistant methods where platforms support them. See [OpSec MFA](/opsec/mfa/overview).
+- **Single sign-on (SSO):** SSO reduces password sprawl but concentrates risk on the identity provider account — that
+  account must itself use strong MFA and hardened recovery paths.
+- **Password management:** Enforce strong password policies and password managers for unique, high-entropy secrets. See
+  [Password management](/opsec/passwords/overview).
+
+## Practices
+
+1. Require MFA for all team members on sensitive systems; prioritize hardware-backed factors for admins and finance.
+2. Monitor and alert on suspicious authentication (repeated failures, impossible travel, new device enrollment).
+3. Train staff on phishing of MFA prompts, recovery flows, and never sharing OTPs or seed material.
+
+## Further reading
+
+- [IAM overview](/iam/overview)
+- [OpSec — Multi-Factor Authentication](/opsec/mfa/overview)
+- [OpSec — Password Management](/opsec/passwords/overview)
+- [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
+- [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
+
+---
+
+<ContributeFooter />

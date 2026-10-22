@@ -1,0 +1,313 @@
+/* Tag Filter Component - rendered in the vocs 2.0 SidebarHeader slot (top of
+   the sidebar). It flows in-document, so it folds into the mobile drawer
+   automatically and needs no fixed positioning or per-width media queries. */
+.tag-filter {
+  position: relative;
+  width: 100%;
+}
+
+/* Pin the filter to the top of the sidebar so it stays visible while the nav
+   list scrolls under it. The sidebar header is a direct child of the scrolling
+   container ([data-v-sidebar-container] is overflow-y-auto), so position:sticky
+   anchors to it. The opaque background matches the body/sidebar background so
+   scrolling links do not show through, and padding-bottom replaces vocs's mb-4
+   (an unlayered rule, so it overrides the vocs:mb-4 utility) to cover the gap. */
+[data-v-sidebar-header] {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+  background: var(--vocs-color-background-primary);
+}
+
+/* Light mode support for the tag filter */
+:root:not([data-vocs-theme='dark']) .tag-filter-toggle {
+  border: 1px solid #908f8f;
+  color: #838383;
+}
+
+:root:not([data-vocs-theme='dark']) .clear-filters {
+  color: #f61a1a;
+}
+
+
+:root:not([data-vocs-theme='dark']) .tag-filter-dropdown {
+  background-color: #94b3df;
+}
+
+:root:not([data-vocs-theme='dark']) .tag-filter-header h3 {
+  color: #00000096;
+}
+
+:root:not([data-vocs-theme='dark']) .tag-filter-search input {
+  background-color: rgb(255 255 255 / 29%);
+}
+
+.tag-filter-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--vocs-background-color-surface);
+  /* search button base; hover lifts to surfaceTint */
+  border: 1px solid rgb(43 41 45);
+  border-radius: 0.75rem;
+  /* match vocs 2.0 search button (rounded-xl) */
+  color: #a3a3a4;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  height: 2.5rem;
+}
+
+/* Match the vocs 2.0 search button hover: only the background changes, to the
+   same surfaceTint token the search button uses (light-dark aware, works in
+   both themes). */
+.tag-filter-toggle:hover {
+  background-color: var(--vocs-background-color-surfaceTint);
+  color: var(--vocs-text-color-primary);
+}
+
+.tag-filter-toggle.active {
+  border-color: #ffffff;
+}
+
+.tag-filter-toggle.has-filters {
+  color: #ffffff;
+}
+
+.filter-count {
+  background: #4339db;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Sidebar tag indicators */
+.sidebar-tag-indicators {
+  display: inline-flex;
+  gap: 2px;
+  margin-left: 6px;
+  align-items: center;
+}
+
+.sidebar-tag-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tag-filter-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-width: 320px;
+  min-width: 250px;
+  background: #1b1b1b;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  /* match vocs 2.0 rounded corners */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  margin-top: 2px;
+  padding: 12px;
+}
+
+.tag-filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tag-filter-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.clear-filters {
+  background: none;
+  border: none;
+  color: #f87171;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.clear-filters:hover {
+  background: rgba(248, 113, 113, 0.1);
+}
+
+
+
+.tag-filter-search {
+  margin-bottom: 12px;
+  display: none;
+}
+
+.tag-filter-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e5e7eb;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.tag-filter-search input:focus {
+  border-color: #60a5fa;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tag-filter-search input::placeholder {
+  color: #9ca3af;
+}
+
+.tag-filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* Reduced gap between items */
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.tag-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  /* Reduced gap */
+  cursor: pointer;
+  padding: 2px 0;
+  /* Reduced padding */
+}
+
+.tag-filter-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #60a5fa;
+}
+
+.tag-filter-badge {
+  padding: 2px 6px;
+  /* Reduced padding for smaller tags */
+  border-radius: 8px;
+  /* Smaller border radius */
+  font-size: 13px;
+  /* Smaller font size */
+  font-weight: 500;
+  color: white;
+  user-select: none;
+}
+
+
+
+.tag-filter-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  pointer-events: none;
+}
+
+/* Light mode adjustments */
+:root:not([data-vocs-theme='dark']) {
+  .tag-filter-toggle {
+    border-color: #908f8f;
+    color: var(--vocs-text-color-secondary);
+  }
+
+  /* Light-scoped hover so it outranks the light base background above. */
+  .tag-filter-toggle:hover {
+    background: var(--vocs-background-color-surfaceTint);
+    border-color: #303030;
+    color: #1e1e1e;
+  }
+
+  .tag-filter-toggle.active {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .tag-filter-toggle.has-filters {
+    border-color: #2563eb;
+    color: #2563eb;
+  }
+
+  .filter-count {
+    background: #4339db;
+  }
+
+  .tag-filter-dropdown {
+    background: white;
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .tag-filter-header h3 {
+    color: #374151;
+  }
+
+  .tag-filter-header {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .clear-filters {
+    color: #dc2626;
+  }
+
+  .clear-filters:hover {
+    background: rgba(220, 38, 38, 0.1);
+  }
+
+
+
+  .tag-filter-search input {
+    border-color: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.05);
+    color: #374151;
+  }
+
+  .tag-filter-search input:focus {
+    border-color: #2563eb;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .tag-filter-search input::placeholder {
+    color: #6b7280;
+  }
+
+  .sidebar-tag-indicator {
+    border-color: rgba(0, 0, 0, 0.3);
+  }
+
+
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tag-filter-toggle {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}

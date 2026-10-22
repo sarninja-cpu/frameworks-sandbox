@@ -1,0 +1,82 @@
+---
+title: "Incident Lessons Learned | Security Alliance"
+description: "Conduct post-incident reviews to improve response capabilities. Document timelines, root causes, and action plans. By analyzing what went well and what"
+tags:
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+  - SRE
+contributors:
+  - role: wrote
+    users: []
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Lessons Learned
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Review every significant incident blamelessly while memory is fresh.
+> Capture timeline, root cause, and owners with deadlines so the output is procedure
+> change, not a tucked-away write-up.
+
+Conducting a post-incident review and identifying lessons learned will improve your project's incident response
+capabilities. By analyzing what went well and what could be improved, you can enhance your readiness for future
+incidents.
+
+## Best practices
+
+1. Review the incident together with everybody involved in handling it shortly after the incident is resolved.
+2. Record details about the incident, including the timeline, root cause, impact, and response efforts.
+3. Assess the effectiveness of the incident response, highlighting areas where the team performed well and areas needing
+improvement.
+4. Create action plans to address identified weaknesses and enhance strengths. Assign responsibilities and deadlines for
+implementing improvements.
+5. Share the lessons learned with the ecosystem to promote awareness and improve overall security practices.
+6. Revise incident response policies and procedures based on the lessons learned to ensure continuous improvement.
+
+## Questions worth asking
+
+- Was the incident detected as quickly as it should have been?
+- Did the severity level reflect actual impact?
+- Were the right people involved early enough?
+- Did the team have an appropriate runbook or was too much invented during the response?
+- Was the external communication cadence appropriate?
+- Did logs, dashboards, and evidence collection support investigation effectively?
+- What should change in monitoring, alerting, staffing, or access controls?
+
+## Outputs beyond the write-up
+
+A good retrospective often drives updates to:
+
+- playbooks and runbooks
+- alert thresholds and monitoring coverage
+- access control or break-glass procedures
+- communication templates
+- training and tabletop exercises
+
+The review should end with tangible changes, not just a document.
+
+For a concrete post-mortem structure and example write-up, see
+[Incident Response Template: Post-Mortem Template](/incident-management/incident-response-template/templates/post-mortem-template)
+and
+[Incident Response Template: Example Post-Mortem](/incident-management/incident-response-template/templates/example-post-mortem).
+
+## Further reading
+
+- [Incident Management overview](/incident-management/overview): how the pages of this framework fit together
+- [Post-Mortem Template](/incident-management/incident-response-template/templates/post-mortem-template):
+  the structure for writing it up
+- [Example Post-Mortem](/incident-management/incident-response-template/templates/example-post-mortem):
+  a completed example to model
+- [Security Metrics and KPIs](/governance/security-metrics-kpis): tracking whether lessons changed outcomes
+
+---
+
+<ContributeFooter />

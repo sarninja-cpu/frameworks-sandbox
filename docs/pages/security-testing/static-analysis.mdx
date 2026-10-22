@@ -1,0 +1,78 @@
+---
+title: "Static Analysis | Security Alliance"
+description: "Detect smart contract vulnerabilities without executing code using static analysis. Tools like Slither and Aderyn find reentrancy, integer overflow, dead code"
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+  - SRE
+contributors:
+  - role: wrote
+    users: [patrickalphac]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Static Analysis
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Static analysis scales patterned review across every change. Treat findings as leads—not proof
+> the system is safe when tools fall silent.
+
+At a high level, static analysis examines structure, syntax, and patterns without executing code. Compilers such as
+`solc` already use forms of static analysis. Security-focused tools add vulnerability pattern detection and quality
+checks.
+
+Unlike dynamic testing (unit, fuzz, integration), bug-finding static analysis does not run the program. It behaves like
+an automated reviewer that encodes common vulnerability patterns at CI speed.
+
+## Static Analysis in Practice
+
+Static analysis tools parse your source code and analyze it against known vulnerability patterns, coding standards, and
+best practices. They can quickly identify issues like:
+
+- **Known vulnerability patterns** (reentrancy, integer overflow, etc.)
+- **Code quality issues** (unused variables, dead code)
+- **Style violations** (naming conventions, formatting)
+- **Logic errors** (unreachable code, incorrect assertions)
+
+For example, this code has a classic reentrancy vulnerability:
+
+```solidity
+contract VulnerableContract {
+    mapping(address => uint256) public balances;
+
+    function withdraw() public {
+        uint256 amount = balances[msg.sender];
+        (bool success,) = msg.sender.call{value: amount}("");
+        require(success, "Transfer failed");
+        balances[msg.sender] = 0; // ❌ State update after external call
+    }
+}
+```
+
+A static analysis tool will automatically detect this reentrancy pattern and flag it as a high-severity issue.
+
+## Static Analysis Tools
+
+- [Aderyn](https://cyfrin.gitbook.io/cyfrin-docs/aderyn-cli/readme)
+- [Slither](https://github.com/crytic/slither)
+- [Solhint](https://github.com/protofire/solhint)
+
+## References
+
+This document incorporates knowledge from:
+
+- [Cyfrin Updraft Security Testing Curriculum](https://updraft.cyfrin.io)
+- [Trail of Bits secure contracts](https://secure-contracts.com/program-analysis/slither/docs/src/api/static_analysis.html)
+
+---
+
+<ContributeFooter />

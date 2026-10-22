@@ -1,0 +1,79 @@
+---
+title: "Community Management | Security Alliance"
+description: "Secure Web3 communities on Discord, X, Telegram, Matrix, Session, and SimpleX: operator credentials, anti-impersonation, and phishing-resistant channel hygiene."
+tags:
+  - Community & Marketing
+contributors:
+  - role: wrote
+    users: [mattaereal, robert, nftdreww]
+  - role: reviewed
+    users: [ghadi8]
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Community Management
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Community channels are high-trust broadcast paths. Compromised operator accounts and weak platform
+> configuration turn that trust into phishing scale.
+
+Communities are often the foundation of Web3 projects and the primary connection between organizations and users. They
+are also a large attack surface. Community members, moderators, founders, and executives can be targeted with social
+engineering, phishing, impersonation, account compromise, malware, and related attacks across Discord, Telegram,
+X (formerly Twitter), shared workspaces, and more.
+
+When a community channel is compromised—whether through a malicious link, a compromised team account, a fraudulent
+support interaction, or a coordinated social engineering campaign—it can become a launch point for wider attacks that
+impact users, project assets, and organizational reputation.
+
+This framework orients teams to platform-specific pages and the broader security domains that constrain community risk.
+Deep, step-by-step controls live in the linked account-management guides.
+
+## What this framework covers
+
+1. [Discord](/community-management/discord): server permissions, role hygiene, raid protection, bot vetting, and
+   anti-impersonation (hub into the Discord guide).
+2. [X (Twitter)](/community-management/twitter): account security, SIM-swap failure modes, OAuth token hygiene, and
+   official-channel practices.
+3. [Telegram](/community-management/telegram): two-step verification, phone-number privacy, admin permissions, and
+   man-in-the-group style threats.
+4. [Matrix](/community-management/matrix): federation and homeserver trust, room join rules, power levels, and
+   federated moderation with ban lists and server ACLs.
+5. [Session](/community-management/session): recovery-password custody, Account ID impersonation, and unencrypted
+   Communities run on operator-hosted servers.
+6. [SimpleX](/community-management/simplex): invitation links as access control, local database custody, member roles,
+   and moderation without user identities.
+
+## Related security domains
+
+| Domain | What it covers | Framework |
+| --- | --- | --- |
+| Authentication and passwords | Unique credentials, hardware-backed multi-factor authentication (MFA), linked email protection | [Operational Security](/opsec/overview) |
+| Phishing and social engineering | Official channel verification, DM policy, impersonation recognition | [Security Awareness](/awareness/overview) |
+| Operational security | Device hygiene, update discipline, reduced attack surface for operators | [Operational Security](/opsec/overview) |
+| Emergency response | Compromise playbooks, access revocation, community notification | [Incident Management](/incident-management/overview) |
+
+## Related frameworks
+
+- [Guides — Account Management](/guides/account-management/overview): platform hardening procedures referenced by each
+  child page
+- [User and Team Security](/user-team-security/overview): staff-facing security postures (when expanded)
+- [Awareness](/awareness/overview): phishing and social-engineering education for operators and members
+- [OpSec](/opsec/overview): credentials, MFA, and device hygiene for people who run community tools
+- [Incident Management](/incident-management/overview): response when a community channel is compromised
+
+## Further reading
+
+- Platform pages above and their linked guides under `/guides/account-management/`
+- [Discord Safety Center](https://discord.com/safety)
+- [X Help Center — How to protect your account](https://help.x.com/en/safety-and-security/account-security-tips)
+- [Telegram FAQ — Two-Step Verification](https://telegram.org/faq#q-what-is-two-step-verification)
+
+---
+
+<ContributeFooter />

@@ -1,0 +1,102 @@
+---
+title: "Joining a Multisig | Security Alliance"
+description: "Join a multisig securely: create fresh hardware wallet addresses, sign proof of ownership messages via MyCrypto. Join with a dedicated hardware-wallet"
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Multisig Security
+contributors:
+  - role: wrote
+    users: [isaac, geoffrey, louis, pablo, dickson]
+  - role: reviewed
+    users: [pinalikefruit, engn33r, ElliotFriedman]
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Joining a Multisig
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Join with a dedicated hardware-wallet address per multisig and prove ownership before
+> you are relied on to sign.
+
+Complete dedicated-key setup and address ownership proof before accepting signer
+responsibility on a protocol multisig.
+
+## Use a Dedicated Key for Each Multisig
+
+Always create a fresh address on a hardware wallet for each new multisig you join. Use a different address index on
+your hardware wallet (same derivation path, just switch between addresses) and label each clearly.
+
+This matters for two reasons:
+
+- **Signing clarity**: With a dedicated key, your wallet interface only shows transactions from one multisig. This
+  eliminates confusion about which multisig a signing request belongs to and reduces the risk of signing the wrong
+  transaction.
+- **Operational separation**: Keeping distinct addresses per multisig makes it easier to track activity and avoid
+  mistakes. Note that if addresses share the same seed phrase, seed compromise still affects all of them.
+
+## Verifying address ownership
+
+Creating a proof of address ownership provides important documentation and security assurances to the protocol for all
+multisig signers. Entity affiliations are acceptable - the goal is accountability, not doxing.
+
+### Preparing and sharing address & Signature
+
+Sign the message like [@social_handle | name | entity] is looking to join [Multisig Name] X DAO multisig with address
+0x... with the private key you intend to use as a signer. One option is to use the MyCrypto web UI:
+
+1. Connect your wallet to [https://app.mycrypto.com/sign-message](https://app.mycrypto.com/sign-message)
+2. Enter the message, click "sign" and sign the message on the wallet.
+3. The sig field in the result JSON is the signature hash.
+
+Share the message:
+
+- **Option 1** - Publish the message along with the signature hash on twitter or other easily accessible social media.
+- **Option 2** - Share the message privately with multisig admin so it can be stored with multisig documentation
+
+## Ethereum signature verification
+
+### Etherscan UI
+
+1. Go to [https://etherscan.io/verifiedSignatures](https://etherscan.io/verifiedSignatures).
+2. Click the Verify Signature button.
+3. Input address, message & signature hash data & click Continue.
+4. See whether the signature provided is valid.
+5. To publish: choose "Verify & publish" and click "Continue".
+6. After the signature is verified, you'll get the link for sharing.
+
+Note: Enter plain text message (not the hex version MyEtherWallet will give!) and ensure the signature includes the 0x prefix.
+
+### MyCrypto
+
+1. Go to [https://app.mycrypto.com/verify-message](https://app.mycrypto.com/verify-message)
+2. Enter json & click Verify:
+
+```json
+{
+ "address": "0x...",
+ "msg": "0x...",
+ "sig": "signature_hash"
+}
+```
+
+Note that "msg" is hex text starting with 0x (add 0x before the hex encoded string if necessary). 4. See whether the
+signature provided is valid.
+
+## Further reading
+
+- [Multisig for Protocols overview](/multisig-for-protocols/overview): how the pages of this framework fit together
+- [Registration & Documentation](/multisig-for-protocols/registration-and-documentation): the record your signer entry
+  creates
+- [Personal Security (OpSec)](/multisig-for-protocols/personal-security-opsec): the posture expected of every signer
+- [Signing & Verification](/wallet-security/signing-and-verification/signing-verification): what you commit to checking
+  before each signature
+
+---
+
+<ContributeFooter />

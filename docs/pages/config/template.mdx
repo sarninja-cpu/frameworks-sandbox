@@ -1,0 +1,260 @@
+---
+title: "Page Title | Security Alliance"
+# Keep titles under 60 characters total (including "| Security Alliance").
+# For long titles, use "| SEAL" instead: "A Longer Page Title | SEAL"
+
+description: "Replace this with a concise summary of the page content."
+# 140-160 characters. Start with the topic name, include searchable terms
+# (tool names, attack types, standards), and use action verbs.
+# Good:  "Smart contract audits: scoping, static analysis, manual review, and formal verification."
+# Avoid: "This page covers security topics." Too vague, no searchable terms.
+
+tags:
+# Existing tags (use any that apply):
+  - Security Specialist
+  - Operations & Strategy
+  - Community & Marketing
+  - HR
+  - Engineer/Developer
+  - DevOps
+  - SRE
+  - SEAL/Initiative
+  - Cloud
+  - DAO
+  - Legal & Compliance
+  - Protocol
+  - Whitehat
+  - Certifications
+  - Multisig Security
+  - SFC
+  - DeFi
+  - Operations
+  - Risk Management
+  - Treasury Ops
+  - Business Tools
+  - Communication Platforms
+  - DevOps Accounts
+  - Smart Contracts
+# Need a tag that doesn't exist yet? Just add it. The build will auto-generate
+# a unique color for it and register it in components/shared/tagColors.ts automatically.
+
+# `wrote` is authorship: a new page, a whole section, or a substantial rewrite.
+# `reviewed` is someone else's sign-off, never your own.
+# `fact-checked` is someone who checked specific claims against primary sources and fixed
+# what was wrong, stale, or unsupported. It counts only if the page is more accurate afterwards.
+# Full rules: docs/pages/contribute/contributing.mdx "Attribution and contributor roles".
+contributors:
+  - role: wrote
+    users: [mattaereal]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+{/*
+  This file is the executable skeleton for new framework pages. Copy it as your
+  starting point, replace the placeholder content, and remove instructional
+  comments before opening a PR.
+
+  Canonical standards (do not fork conflicting rules into this file):
+
+- Page types, required/optional sections, overview maps, exceptions: docs/pages/contribute/content-model.mdx
+- Voice, modality (must/should/may), terminology: docs/pages/contribute/style-and-terminology.mdx
+- Contributor workflow (setup, signed commits, sidebar, images): docs/pages/contribute/contributing.mdx
+
+  Pick one primary page type from the content model before writing. This
+  skeleton defaults to a standard educational page (conceptual or mixed).
+  Overviews, runbooks, templates, cert pages, and project docs adjust sections
+  per that model. Record justified deviations with a content-model-exception
+  HTML comment (see content-model.mdx).
+
+  Keep each page focused on a single topic. If your content would require more
+  than 5-6 top-level sections (## headings), split it into separate pages.
+  Each sub-page should be self-contained enough for direct landing from search.
+
+  Keep components: <TagList /> and <AttributionList /> near the top, and
+  <ContributeFooter /> at the bottom.
+
+  Heading hierarchy: # page title, ## sections, ### subsections. Never skip
+  levels (breaks TOC and assistive navigation).
+*/}
+
+{/* ============================================================================
+    ADDING A WHOLE NEW FRAMEWORK? READ THIS. OTHERWISE SKIP TO THE IMPORT BELOW.
+    ============================================================================
+
+    If you are contributing a single page or rewriting an existing one, this
+    block does not apply to you. Skip ahead.
+
+    If you are unsure whether your topic is a new framework, a section in an
+    existing one, or a single page, open an issue first so we can align on
+    scope before you start writing.
+
+    If you are creating a new framework (a new folder under docs/pages/ with
+    multiple pages), the workflow is:
+
+    1. Create a new folder: docs/pages/<your-framework-name>/. Use kebab-case.
+       Do not use underscores or any other separator. Only normal dashes are
+       allowed.
+
+    2. Write an overview.mdx in that folder using this template. The overview
+       page introduces the framework as a whole and ends with a "Pages" section
+       listing every sub-page with a one-line description (see the OVERVIEW
+       PAGES note further down in this file).
+
+    3. Write the rest of the framework's pages, each one using this template.
+
+    4. Register the new framework in the sidebar with the `dev: true` flag, so
+       it appears on the dev site but stays off production until reviewed.
+
+    5. Run the build command. This generates the auto-generated index file and
+       handles the other site-side artifacts your new framework needs to
+       display correctly.
+
+    6. Reference implementation: see docs/pages/supply-chain/ as a working
+       example of a complete framework.
+
+    For full details on the workflow above (sidebar syntax, build command,
+    signed commits, PR conventions), see docs/pages/contribute/contributing.
+============================================================================ */}
+
+{/*
+  IMPORT PATH: the '../../../components' path below works for pages placed at
+  docs/pages/{framework-folder}/{your-page}.mdx (one level deep inside a
+  framework folder). If your page sits one level deeper, for example
+  docs/pages/{framework-folder}/{subfolder}/{your-page}.mdx, add one more '../'
+  so the import becomes '../../../../components'.
+
+  If your page uses interactive checklists, add Checklist to the import:
+  import { ..., Checklist } from '../../../components'
+*/}
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Title of this Page
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: [Required for most page types. Canonical label and
+> punctuation exactly as written here. One or two sentences, target under 40
+> words. Not a summary of the page; the *point* of the page. Avoid filler like
+> "By following these practices...". Prefer concrete claims. Full rules:
+> content-model.mdx "Key Takeaway contract".]
+
+[Required. This block sits directly under the Key Takeaway with no heading of
+its own, so the page opens as continuous reading. Write two or three short
+paragraphs in plain language that introduce the topic and establish the stakes.
+The Frameworks are read by people at every level of expertise, from seasoned
+security engineers to community managers learning the basics, so do not assume
+the reader already knows what you are talking about. Explain what the topic is,
+who it affects, and why it matters in the Web3 context specifically.]
+
+## The basics
+
+[Required. The foundational, definitional layer. Use this section to lay out
+the core concepts, components, or vocabulary the rest of the page builds on.
+For a topic like supply chain security, this is where you would explain what
+makes up a supply chain in the Web3 context. For a topic like threat modeling,
+this is where you would explain what a threat model is and what it contains.
+
+Rename this section to something specific to your topic if a better name
+exists ("What Makes Up a Web3 Supply Chain", "Anatomy of a Phishing Attack",
+"Components of a Threat Model"), but do not skip the layer itself. A reader
+who is new to the topic should be oriented before any deeper content begins.]
+
+## [Your section title]
+
+[Required. This is where the substance of your page lives. You are an expert
+on this topic; break it into the sections that make sense for what you have
+to teach, name them after their actual content, and write each one in the
+format that fits best.
+
+Use ### subsections within each one as needed.
+
+Common formats to mix and match within a section:
+
+- **Walkthrough**: numbered steps, top to bottom. Use when order matters.
+- **Checklist**: action items the reader can tick off. Use when order does not matter.
+  Use the `<Checklist>` component — never plain `- [ ]` syntax, which renders as a static,
+  non-interactive checkbox. Each block needs a unique `id` (kebab-case) per page:
+
+  ```mdx
+  <Checklist id="section-name">
+  - [ ] First item
+  - [ ] Second item
+    - Descriptive sub-bullet (no checkbox, renders as a bullet)
+  </Checklist>
+  ```
+
+  Rules: `id` values must be unique within the page. Do not use `> blockquote` syntax
+  inside a `<Checklist>` block (use `- _Note: ..._` instead). Keep nesting shallow
+  (avoid 5+ levels). See [`guides/account-management/github.mdx`](https://github.com/security-alliance/frameworks/blob/develop/docs/pages/guides/account-management/github.mdx)
+  for a full worked example.
+- **Decision tree or matrix**: table or branching guide. Use when the right
+  answer depends on the reader's situation.
+- **Plain explanation**: paragraphs. Use when the content is conceptual or
+  when format would get in the way.
+
+When discussing failure modes or common mistakes, anchor them to a specific
+recommendation rather than collecting them in a separate "pitfalls" section.
+For example: "Rotate signing keys quarterly. Teams often skip this because no
+incident forces it, which is exactly when key compromise causes the most
+damage." This keeps the warning where it is useful instead of in a generic list.]
+
+## Real-world examples
+
+[Optional. Include only if you can point to a specific incident, breach,
+post-mortem, or named scenario. Skip the section entirely if you do not have one.
+
+When you do include an example, link to the source: an incident write-up, a
+CISA advisory, a CVE, a post-mortem, or a credible reporting source.]
+
+{/* ============================================================================
+    OVERVIEW PAGES ONLY: include a page map section.
+
+    Acceptable H2 titles (sentence case; see content-model.mdx and style guide):
+    - ## What this framework covers (preferred for top-level framework overview)
+    - ## What this section covers (nested subsection overview, e.g. opsec/passwords/)
+    - ## Framework structure / ## Section structure
+    - ## Contents
+    - ## Table of contents
+
+    Example:
+
+    ## What this framework covers
+
+    1. [Dependency Awareness](/supply-chain/dependency-awareness):
+       managing external packages, version pinning, lockfile integrity, and
+       protection against typosquatting.
+    2. [Web3 Supply Chain Threats](/supply-chain/web3-supply-chain-threats):
+       threat vectors specific to Web3, from frontend library hijacking to
+       infrastructure compromise.
+
+    Keep this list in sync with vocs.config.ts when pages are added, renamed,
+    or removed. Reference: docs/pages/supply-chain/overview.mdx
+
+    If this is a regular sub-page (not an overview), delete this comment and
+    skip straight to "Further reading" below.
+*/}
+
+## Further reading
+
+[Required. Two types of links belong here:
+
+1. Related pages within the frameworks or entire frameworks. Use paths relative
+   to your page, with a short description of why the reader would follow the link:
+   - [Wallet Security](/wallet-security/overview): specific wallet security practices
+   - [DevSecOps](/devsecops/overview): integrating dependency scanning into CI/CD
+
+2. External articles, standards, or tools cited in the content. Use full URLs:
+   - [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)
+   - [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
+
+Every external claim made in the page body should be traceable to a link here
+or to an inline citation. Use descriptive link text. No bare URLs, no "click
+here", no "this article".]
+
+---
+
+<ContributeFooter />

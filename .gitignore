@@ -1,0 +1,52 @@
+**/.DS_Store
+**/.DS_Store?
+**/.vscode
+**/.vscode?
+**/.obsidian
+**/.obsidian?
+**/.idea
+**/.idea?
+book
+bin
+*.code-workspace
+# Rust build artifacts
+**/target/
+**/*.rs.bk
+**/*.rmeta
+**/*.rlib
+Cargo.lock
+
+# Ignore contributors index file to prevent watch loops
+theme/contributors/contributorsindex.js
+theme/tags/tagsindex.js
+
+# Ignore claude-code installation
+claude-code
+@anthropic-ai/claude-code
+
+# Node.js dependencies
+node_modules/
+package-lock.json
+.pnpm-store/
+
+# pnpm artifacts
+pnpm-lock.yaml
+.pnpm-store/
+
+# Claude Code configuration
+CLAUDE.md
+
+# Build folder
+**/dist/
+
+# Generated printable checklists
+public/printable/
+
+.direnv
+
+# Avoid submitting certs data to repo
+cert-data.json
+.worktrees/
+
+# vocs/waku auto-generated route types
+docs/pages.gen.ts

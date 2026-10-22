@@ -1,0 +1,396 @@
+---
+title: "Multisig Registration & Documentation | SEAL"
+description: "Document multisig setup: registration templates for addresses, thresholds, signer verification signatures, controlled contracts, and impact assessment."
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Multisig Security
+contributors:
+  - role: wrote
+    users: [isaac, geoffrey, louis, pablo, dickson]
+  - role: reviewed
+    users: [pinalikefruit, engn33r]
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Registration & Documentation
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Write down who can do what, which address holds which role, and keep the inventory
+> matched to on-chain state after every change.
+
+Proper documentation is essential for multisig security and accountability. This page covers the registration process
+and required documentation.
+
+## Protocol Documentation
+
+Fill out the registration template and send as a PDF to the protocol security team. They will create a dedicated
+section in protocol docs for your multisig with the registration information.
+
+## Registration Template
+
+```
+Multisig Name: [Name]
+Address: [Checksummed address]
+Network: [Ethereum/Solana/etc]
+Threshold: [X of Y signers]
+Classification: [Impact Level] / [Operational Type]
+Purpose: [Brief description]
+
+Signers:
+- [Handle/Entity]: [Address] - [Verification signature]
+- [Handle/Entity]: [Address] - [Verification signature]
+
+Controlled contracts: [List contract addresses and purposes]
+On-chain roles: [Describe roles like ownable, Access Control roles (PAUSER_ROLE)]
+
+Access Control Inventory:
+- Role: [Role name, e.g., UPGRADER_ROLE]
+  Held by: [This multisig address]
+  Contract: [Contract address and name]
+  Capabilities: [What this role can do]
+  Constraints: [Timelock duration, parameter bounds, etc.]
+  Blast radius: [Maximum potential impact if compromised]
+
+Timelock configuration: [Timelock contract address, delay duration, who can cancel]
+Related multisigs: [Other multisigs that interact with the same contracts or share signers]
+
+Impact assessment:
+- Financial exposure: $[amount] ([reasoning])
+- Protocol impact: [description]
+- Classification: [Low/Medium/High/Critical]
+
+Operational classification: [Routine/Time-Sensitive/Emergency]
+
+Constraining factors:
+- [Smart contract limits, governance controls, etc.]
+
+Attestation: This multisig [meets/deviates from] security standards.
+[If deviation: Justification and compensating controls]
+
+Last updated: [Date]
+Updated by: [Name/Handle]
+```
+
+## Signer Verification Process
+
+Each signer must provide a verification signature linking their identity to their address:
+
+1. **Sign message**: "[handle/entity] intends to join [multisig address] with signer [address]"
+2. **Share signature** with multisig team
+3. **Update registration** with verified information
+
+Detailed steps for collecting this information are provided in [Joining a Multisig](/multisig-for-protocols/joining-a-multisig).
+
+**Note**: Entity affiliations are acceptable - the goal is accountability, not doxing.
+
+## Roles & Accountability
+
+### Accountability Structure
+
+| Role | Responsibilities |
+| ------ | ------------------ |
+| **Multisig Operations Lead** | Policy maintenance, signer coordination, documentation, periodic reviews, incident escalation |
+| **Security Contact** | Security incident response, signer verification, emergency coordination |
+
+### Multisig-Specific Roles
+
+For each multisig, assign:
+
+| Role | Responsibility |
+| ------ | ---------------- |
+| **Admin** | Setup, configuration, signer management, documentation |
+| **Transaction Proposer** | Prepares and proposes transactions (may be delegated non-signer) |
+| **Signers** | Review, verify, and sign transactions |
+
+### Signer Responsibilities
+
+Every signer must:
+
+- Use a hardware wallet for multisig operations
+- Maintain a documented recovery and continuity plan
+- Store seed material and recovery credentials securely
+- Verify every transaction before signing
+- Understand multisig response time expectations
+- Report incidents promptly
+- Complete required onboarding, training, and drills
+
+Recovery procedures vary by team. Some teams use backup devices or replicated seed material, while others avoid
+that model because it changes the threat surface. Document the tradeoffs and controls for whichever recovery approach
+you use.
+
+#### Response Time SLAs
+
+Define expected response windows based on the multisig's classification, the assets or permissions it controls, and
+the team's operational model. See [Planning & Classification](/multisig-for-protocols/planning-and-classification#operational-classification).
+
+For example, teams often set much shorter expectations for emergency actions than for routine operational
+transactions. Record those expectations in your internal policy and make sure all signers understand them.
+
+Example:
+
+- **Emergency**: \<2 hours
+- **Time-Sensitive**: 2-12 hours
+- **Routine**: 24-48 hours
+
+### Admin Responsibilities
+
+Multisig admins typically:
+
+- Ensure the multisig is properly documented
+- Maintain an up-to-date signer list with verified addresses
+- Set up primary and backup communication channels
+- Coordinate signer onboarding and offboarding
+- Schedule and conduct periodic reviews at a cadence appropriate to the multisig's risk and activity level (e.g. quarterly
+  minimum)
+- Ensure backup infrastructure is configured and tested
+
+### Operational Lead Responsibilities
+
+- Maintain the playbook and keep documentation current
+- Coordinate across all multisigs
+- Periodically review multisig configurations and supporting documentation
+- Escalate security concerns to the security contact
+- Report on operational status
+
+### Review Schedule
+
+The right review cadence depends on the multisig's scope, activity level, and risk profile.
+
+Example review areas to assign and track:
+
+| Review Type | Frequency | Owner |
+| ------------ | ----------- | ------- |
+| Signer access review | Quarterly | Multisig Admin |
+| Classification review | Quarterly or after major changes | Ops Lead |
+| Emergency contact verification | Every 6 months | Ops Lead |
+| Full policy review | Annually | Ops Lead + Security |
+
+## Update Template
+
+Use this template when making changes to signer composition:
+
+```
+Multisig Signer Update
+
+Multisig Name: [Name]
+Address: [Checksummed address]
+Network: [Ethereum/Solana/etc]
+Updated by: [Name/Handle]
+Update Date: [Date]
+
+Threshold Changes:
+Previous: [X of Y signers]
+New: [X of Y signers]
+
+Signer Changes:
+Additions:
+- [Handle/Entity]: [Address] - [Verification signature]
+
+Removals:
+- [Handle/Entity]: [Address]
+
+Current Signer Set:
+- [Handle/Entity]: [Address]
+- [Handle/Entity]: [Address]
+- [Handle/Entity]: [Address]
+
+Transaction: [Link to executed transaction]
+```
+
+## Documentation Requirements
+
+### Initial Registration
+
+- Complete registration template with all required fields
+- Verification signatures from all signers
+- Classification assessment from [Planning & Classification](/multisig-for-protocols/planning-and-classification)
+- Submit to protocol security team
+
+### Ongoing Maintenance
+
+- Update documentation when signers change
+- Record rationale for any threshold changes
+- Update classification if operational patterns change
+- Maintain current contact information
+
+### Transaction Review Records
+
+Maintain transaction records appropriate to your team's operational, legal, and compliance needs.
+
+At a minimum, teams often record:
+
+- What the transaction was for
+- Who proposed it
+- Who reviewed or approved it
+- Whether it was executed successfully
+- Any issues or anomalies encountered
+
+Retention periods and evidence requirements should be defined by your organization's own policy.
+
+**Retention**: 3 years minimum
+
+Transaction records should capture:
+
+#### Header
+
+- Transaction: [Brief Description]
+- Date: [YYYY-MM-DD]
+- Multisig: [Name]
+- Status: Proposed / Signing / Executed / Rejected
+
+#### Transaction Details
+
+- Network
+- Safe or Squad address
+- Nonce
+- Transaction type
+
+#### What This Transaction Does
+
+- Plain language description of what the transaction accomplishes
+
+#### Initiation
+
+- Proposed by
+- Proposed date
+- Reason or justification
+- Runbook followed
+
+#### Verification & Signing
+
+- Signer
+- Verified
+- Signed
+- Date
+- Notes
+
+#### Verification Checklist
+
+- Correct multisig address
+- Correct network
+- Expected nonce
+- Target address verified
+- Calldata or amount verified
+- Simulation performed
+- Hash matched hardware wallet
+
+#### Simulation Results
+
+- Tool used
+- Result
+- Expected behavior confirmed
+- Link
+
+#### Execution
+
+- Executed by
+- Execution date
+- Transaction hash
+- Block explorer link
+- Gas used
+
+#### Post-Execution Verification
+
+- Transaction confirmed on-chain
+- Expected state change verified
+- Registration updated if applicable
+- Team notified
+
+#### Issues Encountered
+
+- Document any issues, delays, or anomalies
+
+#### Attachments
+
+- Screenshot of simulation
+- Screenshot of hardware wallet confirmation
+- Communication thread link
+
+### Alternative simple transaction record
+
+A simple transaction record might capture:
+
+#### Core Record
+
+- Transaction: [Brief Description]
+- Date: [YYYY-MM-DD]
+- Multisig: [Name]
+- Status: Proposed / Signing / Executed / Rejected
+- Proposed by
+- Reason or justification
+- Network
+- Multisig address
+- Transaction type
+- Transaction hash or proposal link
+- Who reviewed or signed
+- Outcome
+- Notes on any issues encountered
+
+#### Optional Additional Evidence
+
+Higher-maturity teams may also choose to retain:
+
+- Expected nonce
+- Simulation results
+- Verification notes
+- Links to communication threads
+- Post-execution verification notes
+- Screenshots or supporting artifacts where appropriate
+
+#### Sign-Off
+
+- Proposer
+- Final executor
+
+## Ongoing Management
+
+### Regular reviews
+
+Set periodic reminders to keep documentation current:
+
+- **Quarterly**: Review and update protocol documentation if needed
+- **After major changes**: Update when operational patterns or financial exposure changes significantly
+- **Protocol updates**: Reassess if significant protocol changes affect the multisig's role
+
+### Signer changes
+
+Follow these procedures for adding, removing, or replacing signers:
+
+#### Adding/Removing signers
+
+- Maintain or increase total signer count and threshold
+- Document rationale for any changes that reduce signers or threshold
+- Update all documentation immediately after change
+
+#### Replacing signers
+
+Follow steps in the [Signer Rotation Runbook](/multisig-for-protocols/runbooks/signer-rotation)
+
+### Documentation updates
+
+After any signer change:
+
+- Record change rationale and date
+- Communicate changes to protocol security team
+- Update communication channel memberships
+
+#### Update Template
+
+Use the template in [Registration & Documentation → Update Template](/multisig-for-protocols/registration-and-documentation#update-template).
+
+## Further reading
+
+- [Multisig for Protocols overview](/multisig-for-protocols/overview): how the pages of this framework fit together
+- [Planning and Classification](/multisig-for-protocols/planning-and-classification): how to classify your multisig
+- [Joining a Multisig](/multisig-for-protocols/joining-a-multisig): the signer verification process
+- [Operational Runbooks](/multisig-for-protocols/runbooks/overview): procedures whose changes must be recorded here
+
+---
+
+<ContributeFooter />

@@ -1,0 +1,97 @@
+---
+title: "Runbook: Build Pipeline Compromise | Security Alliance"
+description: "Stub runbook. Customize with your CI/CD platform and procedures. A compromised CI/CD path can ship trojans as trusted releases. Freeze pipelines, rotate"
+tags:
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+contributors:
+  - role: wrote
+    users: [isaac]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter, Checklist } from '../../../../../components'
+
+# Runbook: Build Pipeline Compromise
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: A compromised CI/CD path can ship trojans as trusted releases.
+> Freeze pipelines, rotate secrets and signing keys, audit recent jobs, and only
+> re-enable after integrity checks pass.
+
+**Stub runbook.** Customize with your CI/CD platform and procedures.
+
+## Quick Reference
+
+| Field | Value |
+| ------- | ------- |
+| **Typical Severity** | P1 |
+| **Primary Responder** | DevOps / Infrastructure SME |
+| **Last Updated** | [Date] |
+| **Owner** | [Name] |
+
+## Identification
+
+### Symptoms
+
+<Checklist id="symptoms">
+- [ ] Unexpected code in deployed artifacts
+- [ ] CI/CD configuration changed without approval
+- [ ] Secrets accessed or exfiltrated
+- [ ] Unauthorized workflow runs
+</Checklist>
+
+### Confirm Compromise
+
+- Review CI/CD audit logs
+- Compare build artifacts to source
+- Check for config changes in CI/CD platform
+
+## Immediate Actions
+
+<Checklist id="immediate-actions">
+- [ ] Disable compromised pipelines
+- [ ] Rotate all secrets and tokens
+- [ ] Take down potentially compromised deployments
+- [ ] Audit recent builds and deployments
+</Checklist>
+
+## Mitigation
+
+<Checklist id="mitigation">
+- [ ] Audit CI/CD configuration for unauthorized changes
+- [ ] Rebuild from trusted commit using clean pipeline
+- [ ] Implement additional approval requirements
+- [ ] Review and restrict pipeline permissions
+</Checklist>
+
+## Prevention
+
+<Checklist id="prevention">
+- [ ] Require approval for CI/CD config changes
+- [ ] Use short-lived credentials
+- [ ] Implement branch protection
+- [ ] Audit pipeline access regularly
+- [ ] Use signed commits
+- [ ] Separate build and deploy permissions
+</Checklist>
+
+## Further reading
+
+- [Runbooks overview](/incident-management/incident-response-template/runbooks/overview):
+  how the runbooks in this section fit together
+- [Dependency Attack](/incident-management/incident-response-template/runbooks/dependency-attack):
+  the adjacent supply chain scenario
+- [CI/CD Security](/devsecops/continuous-integration-continuous-deployment): pipeline controls that prevent this
+- [Incident Response Policy](/incident-management/incident-response-template/incident-response-policy):
+  severity levels, roles, and escalation
+
+---
+
+<ContributeFooter />

@@ -1,0 +1,176 @@
+---
+title: "Incident Log Template | Security Alliance"
+description: "Use this template during active incidents. The Scribe owns this document. Timestamp decisions, actions, and links continuously so later investigation"
+tags:
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+contributors:
+  - role: wrote
+    users: [hexnickk4997, n0guest]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter, Checklist } from '../../../../../components'
+
+{/*
+  content-model-exception:
+  type: template
+  reason: Reusable template body intentionally uses many H2 placeholders and static task lists for copy-paste.
+  owner: maintainers
+*/}
+
+# Incident Log Template
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: The Scribe owns the live incident log. Timestamp decisions, actions,
+> and links continuously so later investigation and post-mortems are reconstruction, not
+> guesswork.
+
+Use this template during active incidents. The
+  [Scribe](/incident-management/incident-response-template/incident-response-policy#scribe) owns this
+  document.
+
+## How to Use
+
+1. Copy this template to your incident logs folder
+2. Name it: `YYYY-MM-DD-brief-description` (e.g., `2024-03-15-api-outage`)
+3. Update in real-time as things happen
+4. Use UTC timestamps, 24-hour format
+5. More detail is better. You can summarize later
+
+# Incident: [TITLE]
+
+## Summary
+
+| Field | Value |
+| ----- | ----- |
+| **Status** | Active / Mitigated / Resolved |
+| **Severity** | P1 / P2 / P3 / P4 / P5 |
+| **Start Time** | YYYY-MM-DD HH:MM UTC |
+| **Resolution Time** | |
+| **Affected Services** | |
+
+## Roles
+
+| Role | Person |
+| ---- | ------ |
+| Detector | |
+| Incident Leader | |
+| Scribe | |
+| Communication Manager | |
+| Responders | |
+
+## Communication Channels
+
+- **Call:** [link]
+- **Chat:** [channel]
+
+## Timeline
+
+```
+HH:MM UTC - Incident detected by [who/what]
+HH:MM UTC - [Person] assigned as Incident Leader
+HH:MM UTC - [Person] assigned as Scribe
+HH:MM UTC - Initial assessment: [description]
+HH:MM UTC - ...
+```
+
+## Investigation
+
+### What We Know
+
+-
+-
+-
+
+### Affected Services
+
+| Service | Impact | Status |
+| ------- | ------ | ------ |
+| | | |
+
+### Root Cause (initial assessment)
+
+## Actions
+
+### Immediate
+
+<Checklist id="immediate">
+- [ ] [Action] @[Owner]
+- [ ] [Action] @[Owner]
+</Checklist>
+
+### Resolution
+
+<Checklist id="resolution">
+- [ ] [Action] @[Owner]
+- [ ] [Action] @[Owner]
+</Checklist>
+
+## Resolution Summary
+
+### Mitigation Applied
+
+### Verification
+
+<Checklist id="verification">
+- [ ] [Check 1]
+- [ ] [Check 2]
+</Checklist>
+
+### Communications Sent
+
+| Time | Channel | Summary |
+| ---- | ------- | ------- |
+| | | |
+
+### Post-Incident
+
+<Checklist id="post-incident">
+- [ ] Post-mortem scheduled for: [date]
+- [ ] [Post-mortem
+      document](/incident-management/incident-response-template/templates/post-mortem-template)
+      created (save to your post-mortems folder)
+- [ ] Action items assigned
+</Checklist>
+
+### Links & Evidence
+
+- [Relevant dashboard]
+- [Relevant PR/commit]
+- [Screenshots]
+
+### Severity Reference
+
+| Level | Description |
+| ----- | ----------- |
+| P1 | Critical - funds at risk, active exploit |
+| P2 | High - major impact, immediate response |
+| P3 | Moderate - medium impact |
+| P4 | Low - minor issues |
+| P5 | Info - no action needed |
+
+See [Incident Response
+  Policy](/incident-management/incident-response-template/incident-response-policy#severity-levels)
+  for full definitions.
+
+## Further reading
+
+- [Templates overview](/incident-management/incident-response-template/templates/overview):
+  how the templates in this section fit together
+- [Example Incident Log](/incident-management/incident-response-template/templates/example-incident-log):
+  a completed log to model
+- [Post-Mortem Template](/incident-management/incident-response-template/templates/post-mortem-template):
+  what to complete once the incident closes
+- [Incident Response Policy](/incident-management/incident-response-template/incident-response-policy):
+  severity levels, roles, and escalation
+
+---
+
+<ContributeFooter />

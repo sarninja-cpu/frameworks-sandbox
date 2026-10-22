@@ -1,0 +1,164 @@
+---
+title: "Runbook Template | Security Alliance"
+description: "Copy this template to create runbooks for specific incident types. Clone this structure for each scenario: quick reference, detection, containment"
+tags:
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+contributors:
+  - role: wrote
+    users: [hexnickk4997, n0guest]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter, Checklist } from '../../../../../components'
+
+{/*
+  content-model-exception:
+  type: template
+  reason: Reusable template body intentionally uses many H2 placeholders and static task lists for copy-paste.
+  owner: maintainers
+*/}
+
+# Runbook Template
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Clone this structure for each scenario: quick reference, detection,
+> containment, eradication, recovery, and communication. Fill real commands and owners
+> before an incident, not during one.
+
+Copy this template to create runbooks for specific incident types.
+
+# Runbook: [INCIDENT TYPE]
+
+## Quick Reference
+
+| Field | Value |
+| ----- | ----- |
+| **Typical Severity** | P1 / P2 / P3 |
+| **Primary Responder** | [Team/Role] |
+| **Last Updated** | [Date] |
+| **Owner** | [Name] |
+
+## Identification
+
+### Symptoms
+
+<Checklist id="symptoms">
+- [ ] Symptom 1
+- [ ] Symptom 2
+- [ ] Symptom 3
+</Checklist>
+
+### Alerts
+
+- Alert: [name] in [system]
+- Dashboard: [link]
+
+### Differentiation
+
+If you see [X] but not [Y], it might be [different issue] instead.
+
+## Immediate Actions
+
+### Step 1: [Name]
+
+**Why:** [Purpose]
+
+```
+[Commands or steps]
+```
+
+**Expected:** [Result]
+
+### Step 2: [Name]
+
+**Why:** [Purpose]
+
+```
+[Commands or steps]
+```
+
+## Investigation
+
+### Key Questions
+
+<Checklist id="key-questions">
+- [ ] What is the scope?
+- [ ] When did it start?
+- [ ] What changed recently?
+</Checklist>
+
+### Information to Gather
+
+| Data | How to Get It |
+| ---- | ------------- |
+| | |
+
+## Mitigation
+
+### Option A: [Name] - Preferred
+
+**When:** [Conditions]
+**Impact:** [Side effects]
+
+1. Step 1
+2. Step 2
+
+**Verify:**
+
+```
+[Command to verify]
+```
+
+### Option B: [Name] - Fallback
+
+**When:** [Conditions]
+
+1. Step 1
+2. Step 2
+
+## Escalation
+
+Escalate to [Contacts](/incident-management/incident-response-template/contacts) if:
+
+<Checklist id="escalation">
+- [ ] Mitigation doesn't work within [time]
+- [ ] Impact expands
+- [ ] [Condition]
+</Checklist>
+
+## Resolution Checklist
+
+<Checklist id="resolution-checklist">
+- [ ] Mitigation verified
+- [ ] Stakeholders notified
+- [ ] Timeline documented in [Incident Log](/incident-management/incident-response-template/templates/incident-log-template)
+- [ ] Post-mortem scheduled if warranted
+</Checklist>
+
+### Common Root Causes
+
+| Cause | Signs | Fix |
+| ----- | ----- | --- |
+| | | |
+
+## Further reading
+
+- [Templates overview](/incident-management/incident-response-template/templates/overview):
+  how the templates in this section fit together
+- [Runbooks overview](/incident-management/incident-response-template/runbooks/overview):
+  how the runbooks in this section fit together
+- [Key Compromise runbook](/incident-management/incident-response-template/runbooks/key-compromise):
+  a worked example of this structure
+- [Incident Response Policy](/incident-management/incident-response-template/incident-response-policy):
+  severity levels, roles, and escalation
+
+---
+
+<ContributeFooter />

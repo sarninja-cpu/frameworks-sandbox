@@ -1,0 +1,68 @@
+---
+title: "Code Reviews and Peer Audits | SEAL"
+description: "Run security-focused code reviews with checklists, automated analysis, peer audits, tracked findings, and continuous improvement of the review process."
+tags:
+  - Engineer/Developer
+  - Security Specialist
+contributors:
+  - role: wrote
+    users: []
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Code Reviews and Peer Audits
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Code reviews catch vulnerabilities early when security is an explicit checklist item, findings are
+> tracked to close, and automation backs human judgment.
+
+Code reviews and peer audits systematically examine changes for security defects and project standards before merge.
+They reduce the chance that single-author blind spots ship into production.
+
+## Best practices
+
+1. **Regular reviews**
+   - Review early and often; late mega-reviews hide issues.
+   - Make review a required workflow step for protected branches.
+2. **Review checklists**
+   - Cover security items: input handling, authz, crypto misuse, secrets, error paths, and dangerous defaults.
+   - Keep checklists short enough that reviewers actually use them.
+3. **Automated tools**
+   - Use static and dependency analysis to flag candidates for human attention.
+   - Examples practitioners use include SonarQube, Checkmarx, and Snyk—evaluate fit for the stack and false-positive load.
+4. **Peer audits**
+   - Have teammates review each other’s code for a second perspective.
+   - Rotate reviewers so knowledge and scrutiny spread across the team.
+
+## Conducting effective reviews
+
+1. **Focus on security**
+   - Explicitly prioritize security-relevant diffs, not only style.
+   - Hold changes to the project’s
+     [secure coding standards](/secure-software-development/secure-coding-standards-guidelines).
+2. **Collaborative approach**
+   - Treat review as joint quality work, not gatekeeping theater.
+   - Prefer specific, constructive comments tied to risk.
+3. **Document findings**
+   - Record issues and track resolution in the team’s issue system.
+   - Do not merge “we’ll fix later” critical findings without a tracked follow-up and acceptance criteria.
+4. **Continuous improvement**
+   - Update checklists when incidents or near-misses reveal gaps.
+   - Revisit tool rules when noise blocks real signal.
+
+## Further reading
+
+- [OWASP Code Review Guide](https://owasp.org/www-project-code-review-guide/)
+- [Google Engineering Practices — Code Review](https://google.github.io/eng-practices/review/)
+- Project [Security Testing](/security-testing/overview)
+
+---
+
+<ContributeFooter />

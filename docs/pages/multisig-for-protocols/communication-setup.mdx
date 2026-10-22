@@ -1,0 +1,65 @@
+---
+title: "Multisig Communication Setup | SEAL"
+description: "Configure secure multisig communication channels: Signal with end-to-end encryption as primary, backup channels on Telegram or Discord"
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Multisig Security
+contributors:
+  - role: wrote
+    users: [isaac, geoffrey, louis, pablo, dickson]
+  - role: reviewed
+    users: [pinalikefruit, engn33r]
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Communication Setup
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Give every multisig a dedicated E2EE primary channel, a backup on a different platform,
+> and paging for critical response windows.
+
+Establish secure primary and backup channels before the first real signing ceremony so
+emergencies are not the first time the team coordinates.
+
+## Primary channel
+
+Set up a dedicated communication channel for multisig operations:
+
+- **Platform**: Signal recommended (end-to-end encryption)
+- **Membership**: Multisig signers + authorized management only
+- **Configuration**: Notifications enabled, disappearing messages for sensitive discussions
+- **Naming**: Clear channel naming convention (e.g., "X-Treasury-Multisig")
+
+## Backup channels
+
+Configure backup communication on a different platform:
+
+- **Platform**: Different from primary (if Signal primary, use Telegram/Discord/Slack)
+- **Same membership restrictions** as primary
+- **Document access procedures** for all signers
+
+## Paging system (Critical/Emergency Multisigs)
+
+For multisigs requiring rapid response:
+
+- Configure alerts that can reach signers 24/7
+- Include essential info in page: multisig name, urgency level, primary action needed
+- Link to emergency runbooks in notification message
+- Test quarterly to ensure reliability
+
+## Further reading
+
+- [Multisig for Protocols overview](/multisig-for-protocols/overview): how the pages of this framework fit together
+- [Emergency Procedures](/multisig-for-protocols/emergency-procedures): when these backup channels get used
+- [Incident Reporting](/multisig-for-protocols/incident-reporting): where reports are sent once contact is made
+- [Encrypted Communication Tools](/privacy/encrypted-communication-tools): choosing platforms for signer coordination
+
+---
+
+<ContributeFooter />

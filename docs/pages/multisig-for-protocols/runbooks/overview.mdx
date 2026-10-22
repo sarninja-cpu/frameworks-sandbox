@@ -1,0 +1,51 @@
+---
+title: "Multisig Operational Runbooks | SEAL"
+description: "Operational runbooks for common multisig actions, including token transfers, threshold changes, and emergency pause transactions. Treat these runbooks as"
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Multisig Security
+contributors:
+  - role: wrote
+    users: [isaac, geoffrey, louis, pablo, dickson]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../../components'
+
+# Operational Runbooks
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Treat these runbooks as templates. Customize addresses, channels, and policy before the
+> first production operation.
+
+These are example runbooks for common multisig operations. Review and customize them for your protocol before use.
+
+## What this section covers
+
+- [Token Transfer Runbook](/multisig-for-protocols/runbooks/token-transfer) - Send tokens from a multisig to another
+  address using standard verification and execution steps.
+- [Signer Rotation Runbook](/multisig-for-protocols/runbooks/signer-rotation) - Add, remove, or replace signers while
+  preserving signer-count and threshold requirements.
+- [Threshold Change Runbook](/multisig-for-protocols/runbooks/threshold-change) - Update a multisig threshold while
+  checking policy requirements and post-change verification.
+- [Emergency Pause Runbook](/multisig-for-protocols/runbooks/emergency-pause) - Execute urgent pause transactions with
+  streamlined verification and backup infrastructure.
+
+## Further reading
+
+- [Multisig for Protocols overview](/multisig-for-protocols/overview): how the pages of this framework fit together
+- [Registration & Documentation](/multisig-for-protocols/registration-and-documentation): record changes and maintain
+  audit trails
+- [Emergency Procedures](/multisig-for-protocols/emergency-procedures): coordinate incidents and recovery actions
+- [Backup Signing & Infrastructure](/multisig-for-protocols/backup-signing-and-infrastructure): use backup interfaces
+  when primary systems are unavailable
+
+---
+
+<ContributeFooter />

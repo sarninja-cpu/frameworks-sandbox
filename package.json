@@ -1,0 +1,85 @@
+{
+  "name": "workspace",
+  "version": "0.0.1",
+  "description": "Official repository to the Security Frameworks by SEAL. This repository contains the entire structure and contents of the frameworks. Feel free to suggest from new categories to grammar corrections. Collaboration is open to everyone. **This is a work in progress.**",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "cspell": "10.3.5",
+    "tailwindcss": "4.3.3",
+    "vocs": "2.10.0",
+    "waku": "1.0.0-rc.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "pnpm run generate-tags && pnpm run generate-indexes && pnpm run generate-security-map && vocs dev --host 0.0.0.0 --port 5173",
+    "docs:build": "pnpm run generate-tags && pnpm run generate-indexes && pnpm run generate-printables && pnpm run generate-cert-data && pnpm run generate-security-map && vocs build",
+    "postdocs:build": "node utils/sitemap-generator.cjs && node utils/generate-llms.cjs && node utils/searchbar-indexing.cjs",
+    "docs:preview": "vocs preview",
+    "generate-tags": "node utils/tags-fetcher.cjs",
+    "generate-indexes": "node utils/generate-folder-indexes.cjs",
+    "generate-printables": "node utils/generate-printable-checklists.cjs",
+    "generate-cert-data": "node utils/generate-cert-data.cjs",
+    "generate-security-map": "node utils/generate-security-map.cjs",
+    "validate:security-map": "node utils/validate-security-map.cjs",
+    "coverage:security-map": "node utils/coverage-security-map.cjs",
+    "test:security-map": "node --test utils/security-map.test.cjs utils/security-map-assessment.test.cjs",
+
+    "validate:content": "node utils/validate-content.cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "CC-BY-SA-4.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ],
+    "ignoredBuiltDependencies": [
+      "just-install"
+    ],
+    "overrides": {
+      "lodash-es": ">=4.18.1",
+      "yaml": ">=2.8.4",
+      "fast-xml-parser": ">=5.7.0",
+      "hono": ">=4.13.0",
+      "uuid": ">=11.1.1",
+      "tmp": ">=0.2.7",
+      "esbuild": ">=0.28.1",
+      "vite": ">=8.0.16",
+      "js-yaml": ">=4.3.1",
+      "gray-matter>js-yaml": ">=3.15.1 <4",
+      "@babel/core": ">=7.29.7 <8",
+      "brace-expansion": ">=2.1.4",
+      "body-parser": ">=2.3.0",
+      "@hono/node-server": ">=2.1.0",
+      "fast-uri": ">=3.1.5",
+      "react-router": ">=8.3.0",
+      "postcss": ">=8.5.25",
+      "react-server-dom-webpack": ">=19.3.0",
+      "ip-address": ">=10.4.0",
+      "@vitejs/plugin-rsc": ">=0.5.35",
+      "@vitejs/plugin-react": ">=6.1.1",
+      "es-module-lexer": ">=2.3.0 <3"
+    }
+  },
+  "packageManager": "pnpm@10.15.0",
+  "dependencies": {
+    "@aws-sdk/client-s3": "3.1142.0",
+    "@aws-sdk/lib-storage": "3.1142.0",
+    "axios": "1.20.0",
+    "exceljs": "^4.4.0",
+    "gray-matter": "^4.0.3",
+    "just-install": "^2.0.2",
+    "mermaid": "^11.16.1",
+    "minisearch": "^7.2.0",
+    "playwright": "^1.60.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router-dom": "^7.15.1",
+    "react-server-dom-webpack": "19.3.0",
+    "sharp": "^0.35.5",
+    "uuid": "^14.0.0"
+  }
+}

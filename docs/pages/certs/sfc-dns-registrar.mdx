@@ -1,0 +1,198 @@
+---
+title: "SFC: DNS Registrar | Security Alliance"
+description: "SFC DNS Registrar certification: domain management, registrar access controls, DNSSEC configurations, email authentication (SPF/DKIM/DMARC), monitoring, and incident response."
+version: "1.1"
+revised: "2026-04-17"
+tags:
+  - SEAL/Initiative
+  - Certifications
+  - SFC
+cert:
+- id: dns-1
+  title: Governance & Domain Management
+  controls:
+  - id: dns-1.1.1
+    description: Is there a clearly designated person or team accountable for domain
+      security?
+    baselines:
+      - Accountability scope covers policy maintenance, security reviews, renewal
+        management, access control oversight, and incident escalation
+    title: Domain Security Owner
+  - id: dns-1.1.2
+    description: Do you maintain a complete, current record of all your domains and
+      their configurations?
+    baselines:
+      - Registry includes domain name, ownership, purpose, expiration date, registrar,
+        DNS record configurations, security settings (DNSSEC, CAA), and registrar
+        account configurations
+      - Accessible to relevant team members
+    title: Domain Inventory and Documentation
+- id: dns-2
+  title: Risk Assessment & Classification
+  controls:
+  - id: dns-2.1.1
+    description: Do you classify your domains by risk level and verify they meet the
+      security requirements for their classification?
+    baselines:
+      - Classification considers criticality, financial exposure, and operational
+        impact
+      - Domains where users may transact funds or that are external-facing classified
+        at the highest tier
+      - Each classification maps to specific security requirements (DNSSEC, locks,
+        monitoring frequency, access controls)
+      - Compliance verified at least annually through configuration review against
+        documented standards
+    title: Domain Classification and Compliance
+  - id: dns-2.1.2
+    description: Do you use a registrar with enterprise-grade security for your
+      critical domains?
+    baselines:
+      - Registrar supports registry locks (server-level EPP locks)
+      - Registrar supports hardware security key MFA (FIDO2/WebAuthn)
+      - Registrar has no history of social engineering vulnerabilities
+      - Due diligence includes checking ICANN compliance notices for the registrar
+    title: Enterprise Registrar Security Requirements
+- id: dns-3
+  title: Access Control & Authentication
+  controls:
+  - id: dns-3.1.1
+    description: Do you control and secure access to domain registrar and DNS
+      management accounts?
+    baselines:
+      - "Registrar and DNS management accounts classified as high-privilege and
+        managed per [SFC - Identity & Accounts](/certs/sfc-identity-accounts)
+        (phishing-resistant MFA via hardware keys, credential management, recovery
+        methods, account lifecycle, periodic access reviews)"
+      - Registrar account ownership and role-based permissions documented where
+        the registrar supports them
+    title: Registrar Access Control
+  - id: dns-3.1.2
+    description: Is your domain security contact email independent of the domains
+      it protects?
+    baselines:
+      - Hosted on a different domain than any domain it's responsible for
+      - Not a personal email address
+      - Used exclusively for domain security purposes
+      - Alias that notifies multiple people
+    title: Dedicated Domain Security Contact Email
+  - id: dns-3.1.3
+    description: Do you have change management procedures for critical domain
+      operations?
+    baselines:
+      - Covers transfers, deletions, nameserver changes, and DNS record modifications
+      - Relevant team members notified before critical changes
+      - All changes logged
+      - Critical changes verified through out-of-band confirmation with the registrar
+    title: Change Management for Domain Operations
+- id: dns-4
+  title: Technical Security Controls
+  controls:
+  - id: dns-4.1.1
+    description: Do you enforce DNS security standards across all your domains?
+    baselines:
+      - DNSSEC enabled and validated on all critical domains
+      - CAA records configured to restrict certificate issuance to authorized CAs
+        only
+      - TTL policies documented with rationale
+      - Standards applied consistently based on domain classification
+    title: DNS Security Standards
+  - id: dns-4.1.2
+    description: Do you enforce email authentication standards and monitor for
+      violations?
+    baselines:
+      - SPF, DKIM, and DMARC configured for all domains that send email
+      - DMARC policy set to reject for domains actively sending email
+      - DMARC aggregate reports (rua) monitored and reviewed
+      - MTA-STS configured where supported to enforce encrypted email transport
+      - Domains that don't send email have SPF/DMARC records that reject all email
+    title: Email Authentication Standards
+  - id: dns-4.1.3
+    description: Do you use domain locks to prevent unauthorized transfers and
+      changes?
+    baselines:
+      - Registry locks (server-level EPP locks) enabled for all critical domains
+        where supported
+      - Transfer locks enabled on all domains
+      - Lock status verified periodically
+    title: Domain Lock Implementation
+  - id: dns-4.1.4
+    description: Do you manage the full lifecycle of your TLS certificates?
+    baselines:
+      - Covers issuance, renewal, and revocation procedures
+      - Certificates tracked with expiration alerts
+      - Automated renewal where possible
+      - Revocation procedures documented for compromised certificates
+    title: TLS Certificate Lifecycle Management
+- id: dns-5
+  title: Monitoring & Detection
+  controls:
+  - id: dns-5.1.1
+    description: Do you monitor your domains for unauthorized changes to DNS records,
+      registration status, and security settings?
+    baselines:
+      - DNS record monitoring covers nameserver (NS) changes, A/AAAA changes, MX
+        changes, TXT/SPF/DMARC changes, CAA record removal, DNSSEC status changes,
+        and unexpected TTL drops
+      - Registration monitoring covers lock status, registrar account settings, and
+        nameserver delegation
+      - Alerting and escalation paths documented
+      - Critical alerts (nameserver changes, DNSSEC failure, registrar changes)
+        trigger immediate investigation
+      - Monitoring infrastructure not dependent on the domains being monitored
+    title: Domain and DNS Monitoring
+  - id: dns-5.1.2
+    description: Do you monitor Certificate Transparency logs for unauthorized
+      certificates issued for your domains?
+    baselines:
+      - Subscribed to a CT monitoring service that alerts on new certificate issuance
+      - Alerts reviewed and unauthorized certificates investigated promptly
+      - Wildcard certificates flagged if not expected
+    title: Certificate Transparency Monitoring
+  - id: dns-5.1.3
+    description: Do you actively prevent domain expiration?
+    baselines:
+      - Auto-renewal enabled on all domains
+      - Calendar reminders at 90, 60, 30, and 7 days before expiration
+      - Payment methods verified current
+      - Backup person designated for renewal responsibility
+    title: Domain Expiration Prevention
+- id: dns-6
+  title: Incident Response
+  controls:
+  - id: dns-6.1.1
+    description: Do you have alerting and emergency contacts in place for domain
+      security incidents?
+    baselines:
+      - Alerting system in place to notify relevant stakeholders when a potential
+        compromise is detected
+      - Emergency contacts pre-documented including registrar security team, SEAL
+        911, and legal counsel
+      - Communication plan for warning users (status page, social media, in-app
+        warnings)
+    title: Alerting and Emergency Contacts
+  - id: dns-6.1.2
+    description: Do you have an incident response plan for domain hijacking and DNS
+      compromise?
+    baselines:
+      - Covers key scenarios including registrar account compromise, DNS hijacking,
+        and unauthorized transfers
+      - Emergency registry lock activation procedures
+      - Procedures for regaining control of compromised domains
+      - Post-recovery validation including DNS records verified against known-good
+        baseline, all credentials reset, and access logs reviewed
+      - Plan tested at least annually (can be combined with broader IR drills)
+    title: Domain Incident Response Plan
+---
+
+import { TagList, AttributionList, CertList } from '../../../components'
+
+# SFC - DNS Registrar
+
+The SEAL Framework Checklist (SFC) for DNS Registrar provides best practices for securely managing
+domain names and DNS configurations.
+
+*Revision {frontmatter.version} · Updated {frontmatter.revised} · [Changelog](/certs/changelog)*
+
+For more details on certifications or self-assessments, refer to the [Certification Guidelines](/certs/certification-guidelines).
+
+<CertList sections={frontmatter.cert} name="sfc-dns-registrar" />

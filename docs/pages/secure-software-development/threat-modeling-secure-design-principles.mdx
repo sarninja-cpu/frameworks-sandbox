@@ -1,0 +1,69 @@
+---
+title: "Threat Modeling and Secure Design | SEAL"
+description: "Identify and mitigate design-time threats with STRIDE-style modeling and secure design principles: least privilege, defense in depth, fail securely"
+tags:
+  - Engineer/Developer
+  - Security Specialist
+contributors:
+  - role: wrote
+    users: []
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Threat Modeling and Secure Design Principles
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Threat modeling before build chooses which controls matter. Secure design principles keep residual
+> risk from depending on a single lucky check.
+
+Threat modeling and secure design identify and mitigate security threats during design—before code cements bad
+assumptions. For broader organizational threat-modeling practice, see the dedicated
+[Threat Modeling](/threat-modeling/overview) framework.
+
+## Threat modeling
+
+1. **Identify assets**
+   - Name what needs protection: user funds, sensitive data, credentials, admin keys, intellectual property, and
+     reputation-critical services.
+2. **Identify threats**
+   - Enumerate threats against those assets. STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of
+     Service, Elevation of Privilege) is one common structure—not the only valid one.
+3. **Assess risks**
+   - Rank threats by likelihood and impact in the real deployment context.
+4. **Develop mitigations**
+   - Design controls that reduce the top risks first; accept residual risk consciously.
+5. **Validate and iterate**
+   - Update the model as architecture, trust boundaries, and assets change.
+
+## Secure design principles
+
+1. **Least privilege**
+   - Grant users and systems only the access required for the function.
+2. **Defense in depth**
+   - Layer independent controls so single failures do not equal total loss.
+3. **Fail securely**
+   - On error, prefer closed/safe states; do not leak secrets in failure paths.
+4. **Secure defaults**
+   - Ship restrictive defaults; require deliberate action to weaken security.
+5. **Separation of duties**
+   - Split powerful actions so one person or service cannot unilaterally abuse the system.
+6. **Secure by design**
+   - Treat security as a first-class design constraint at every major architecture decision.
+
+## Further reading
+
+- [Threat Modeling framework](/threat-modeling/overview)
+- [OWASP Threat Modeling](https://owasp.org/www-community/Threat_Modeling)
+- [Microsoft SDL — Threat modeling](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling)
+- [NIST SSDF (SP 800-218)](https://csrc.nist.gov/publications/detail/sp/800-218/final)
+
+---
+
+<ContributeFooter />

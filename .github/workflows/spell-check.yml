@@ -1,0 +1,95 @@
+name: 🥢 Spell check 
+
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  typo_check:
+    name: 🥢 Spell check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    env: 
+      TYPOS: ""
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 2
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Find and check typos in mdx files
+        id: find_typos
+        run: |
+          echo "Checking for typos..."
+          set -o pipefail
+          # Run cspell and capture output, but don't fail yet
+          output=$(pnpm exec cspell lint "docs/pages/**/*.mdx" --no-progress --no-summary || true)
+
+          if [[ -n "$output" ]]; then
+            echo "Typos found, formatting output..."
+            formatted=$(echo "$output" | nl -w2 -s'. ')
+            TYPOS+="- 📄 docs/pages:"
+            TYPOS+=$'\n'
+            TYPOS+='```'
+            TYPOS+=$'\n'
+            TYPOS+="$formatted"
+            TYPOS+=$'\n'
+            TYPOS+='```'
+            TYPOS+=$'\n\n'
+            {
+              echo 'TYPOS<<EOF'
+              echo "$TYPOS"
+              echo EOF
+            } >> "$GITHUB_ENV"
+          fi
+
+      - name: Comment on pull request
+        if: env.TYPOS != ''
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const author = '${{github.event.pull_request.user.login}}';
+            const typos = process.env.TYPOS;
+            const body = `
+            Hi @${author},
+
+            Following typos were found in the pull request:
+            
+            ${typos}
+
+            ## ℹ️ Here's how to fix them:
+            - **Fix typos:** Open the relevant files and fix any identified typos.
+            - **Update wordlist:** If a flagged word is actually a project-specific term add it to \`wordlist.txt\` in the project root.
+              Each word should be listed on a separate line.
+            - **🚧 Remember:**
+              - When adding new words it MUST NOT have any spaces or special characters within or around it.
+              - \`wordlist\` is NOT case sensitive.
+              - If code variables are flagged, wrap them in backticks instead of adding them to the \`wordlist\`. This way they are treated as code and won’t bloat the \`wordlist\` with project-specific identifiers.
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+            core.setFailed('🥢 Spell check: Typos found in docs. Please fix them.');

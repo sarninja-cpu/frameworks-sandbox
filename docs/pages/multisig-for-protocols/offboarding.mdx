@@ -1,0 +1,71 @@
+---
+title: "Multisig Offboarding | Security Alliance"
+description: "Safely leave a multisig role: coordinate signer removal with the team, execute removal transaction, leave communication channels"
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Multisig Security
+contributors:
+  - role: wrote
+    users: [isaac, geoffrey, louis, pablo, dickson]
+  - role: reviewed
+    users: [pinalikefruit, engn33r, mattaereal]
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Offboarding
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Leaving a multisig is not logout: coordinate rotation, confirm on-chain removal, and
+> wipe local signing state so residual access cannot linger.
+
+When leaving a multisig, follow these steps:
+
+Coordinate removal so residual access cannot survive a role change. Follow the sequence
+below end to end.
+
+## Signer removal
+
+1. **Coordinate with team** - Notify other signers and schedule the removal transaction
+2. **Execute removal** - Follow the [Signer Rotation Runbook](/multisig-for-protocols/runbooks/signer-rotation)
+3. **Verify removal** - Confirm your address has been removed from the multisig
+4. **Update documentation** - Ensure documentation reflects the change
+
+## Timing requirements
+
+Teams should define offboarding timelines in advance based on the multisig's role, risk, and governance process.
+
+For higher-risk or emergency-sensitive multisigs, signer removal may need to happen on a much shorter timeline. For
+lower-risk setups, the appropriate timeline may be longer. Document the expected response window in your internal
+policy and make sure it is understood by all signers. For example:
+
+- **Emergency-class multisigs**: Complete signer removal within 48-72 hours
+- **Critical-class multisigs**: Complete signer removal within 7 days
+- **Other multisigs**: Complete signer removal within 14 days
+
+## Clean up access
+
+- Leave all multisig communication channels (Signal, Telegram, etc.)
+- Remove access to any sensitive shared documents or resources
+- Delete any locally stored sensitive multisig information
+
+## Handover
+
+- Share any relevant context or pending items with remaining signers
+- Provide contact information if needed for transition questions
+
+## Further reading
+
+- [Multisig for Protocols overview](/multisig-for-protocols/overview): how the pages of this framework fit together
+- [Signer Rotation Runbook](/multisig-for-protocols/runbooks/signer-rotation): the on-chain procedure for removal
+- [Joining a Multisig](/multisig-for-protocols/joining-a-multisig): the onboarding steps being reversed here
+- [Access Management](/iam/access-management): revoking the wider access that came with the role
+
+---
+
+<ContributeFooter />

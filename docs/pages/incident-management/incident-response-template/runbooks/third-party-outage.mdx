@@ -1,0 +1,212 @@
+---
+title: "Runbook: Third-Party Outage | Security Alliance"
+description: "This is an example runbook. Review and customize for your protocol before use. Fill in your specific vendors, dependencies, and failover procedures."
+tags:
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+contributors:
+  - role: wrote
+    users: [isaac]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter, Checklist } from '../../../../../components'
+
+# Runbook: Third-Party Outage
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Vendor outages cascade into protocol impact. Identify the
+> dependency, fail over if ready, communicate status honestly, and track vendor
+> remediation without pretending you control their systems.
+
+**This is an example runbook.** Review and customize for your protocol before use. Fill in your
+specific vendors, dependencies, and failover procedures.
+
+## Quick Reference
+
+| Field | Value |
+| ----- | ----- |
+| **Typical Severity** | P2-P3 |
+| **Primary Responder** | Infrastructure SME |
+| **Last Updated** | [Date] |
+| **Owner** | [Name] |
+
+## Identification
+
+### Symptoms
+
+<Checklist id="symptoms">
+- [ ] Specific functionality broken
+- [ ] Errors referencing external service
+- [ ] Status page shows provider outage
+- [ ] Timeouts to external endpoints
+</Checklist>
+
+### Common Dependencies
+
+| Service Type | Provider(s) | Criticality | Fallback? |
+| --- | --- | --- | --- |
+| RPC | | Critical / High / Med | Yes / No |
+| Hosting | | | |
+| CDN | | | |
+| DNS | | | |
+| Monitoring | | | |
+| Auth | | | |
+| Oracle | | | |
+
+## Immediate Actions
+
+### Step 1: Confirm Third-Party Issue
+
+**Why:** Verify it's not your own infrastructure
+
+<Checklist id="step-1-confirm-third-party-issue">
+- [ ] Check provider status page
+- [ ] Test provider directly
+- [ ] Check if other users reporting (Twitter, Discord)
+</Checklist>
+
+### Step 2: Assess Your Impact
+
+<Checklist id="step-2-assess-your-impact">
+- [ ] Which of your services affected?
+- [ ] What functionality is degraded/broken?
+- [ ] User-facing impact?
+</Checklist>
+
+### Step 3: Enable Fallback (if available)
+
+<Checklist id="step-3-enable-fallback-if-available">
+- [ ] Switch to backup provider
+- [ ] Enable cached/degraded mode
+- [ ] Disable affected features gracefully
+</Checklist>
+
+## By Service Type
+
+### RPC Provider Outage
+
+**Fallback options:**
+
+1. Switch to secondary RPC
+2. Use public endpoints temporarily
+3. Run own node if available
+
+```
+[Document your RPC failover procedure]
+```
+
+### Hosting/CDN Outage
+
+**Fallback options:**
+
+1. Failover to secondary hosting
+2. Enable maintenance page
+3. Redirect to status page
+
+### Oracle Outage
+
+**Impact:** Price feeds may be stale or unavailable
+
+**Options:**
+
+1. Pause affected operations
+
+> Customize this section for your specific oracle dependencies and what operations depend on them.
+
+## Communication
+
+### Internal
+
+- Update team on status
+- ETA if known
+- What's affected
+
+### External
+
+If significant user impact:
+
+> We're experiencing issues with [affected feature] due to a third-party service outage. We're monitoring and will
+> restore service when the provider recovers.
+
+Include:
+
+- What's affected
+- What still works
+- Where to check for updates
+
+## Monitoring the Outage
+
+<Checklist id="monitoring-the-outage">
+- [ ] Subscribe to provider status updates
+- [ ] Set reminder to check every 15-30 min
+- [ ] Monitor your own metrics for recovery
+</Checklist>
+
+## Recovery
+
+### When Provider Recovers
+
+1. Verify your services are working
+2. Check for any data inconsistencies
+3. Monitor for stability
+4. Switch back from fallback if used
+
+### Post-Outage
+
+<Checklist id="post-outage">
+- [ ] Document timeline
+- [ ] Review if fallback worked
+- [ ] Assess if additional redundancy needed
+- [ ] Consider SLA review with provider
+</Checklist>
+
+## Escalation
+
+<Checklist id="escalation">
+- [ ] [Infrastructure
+      Vendors](/incident-management/incident-response-template/contacts#infrastructure-vendors) -
+      contact provider support
+- [ ] [Decision Makers](/incident-management/incident-response-template/contacts#decision-makers) -
+      if extended outage or no ETA
+</Checklist>
+
+## Prevention
+
+Reduce third-party dependency risk:
+
+<Checklist id="prevention">
+- [ ] Multiple RPC providers
+- [ ] Multi-region hosting
+- [ ] CDN with failover
+- [ ] Graceful degradation
+- [ ] Cached fallbacks where appropriate
+- [ ] Regular dependency review
+</Checklist>
+
+## Provider Contacts
+
+| Provider | Status Page | Support Contact |
+| --- | --- | --- |
+| | | |
+| | | |
+
+## Further reading
+
+- [Runbooks overview](/incident-management/incident-response-template/runbooks/overview):
+  how the runbooks in this section fit together
+- [DDoS Attack](/incident-management/incident-response-template/runbooks/ddos-attack):
+  the adjacent availability scenario
+- [Vendor Risk Management](/supply-chain/vendor-risk-management): assessing dependencies before they fail
+- [Incident Response Policy](/incident-management/incident-response-template/incident-response-policy):
+  severity levels, roles, and escalation
+
+---
+
+<ContributeFooter />

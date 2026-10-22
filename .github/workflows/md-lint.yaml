@@ -1,0 +1,17 @@
+name: Markdown linter
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+    - uses: DavidAnson/markdownlint-cli2-action@ded1f9488f68a970bc66ea5619e13e9b52e601cd # v23.2.0
+      continue-on-error: true
+      with:
+        globs: |
+          docs/**/*.mdx

@@ -1,0 +1,94 @@
+---
+title: "Runbook: CDN/Hosting Compromise | Security Alliance"
+description: "Stub runbook. Customize with your CDN and hosting provider details. Compromised CDN or hosting can serve malicious assets at your legitimate origin."
+tags:
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+contributors:
+  - role: wrote
+    users: [isaac]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter, Checklist } from '../../../../../components'
+
+# Runbook: CDN/Hosting Compromise
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Compromised CDN or hosting can serve malicious assets at your
+> legitimate origin. Invalidate caches, rotate credentials, restore known-good builds,
+> and verify integrity of what users fetch.
+
+**Stub runbook.** Customize with your CDN and hosting provider details.
+
+## Quick Reference
+
+| Field | Value |
+| ----- | ----- |
+| **Typical Severity** | P1 |
+| **Primary Responder** | Infrastructure SME |
+| **Last Updated** | [Date] |
+| **Owner** | [Name] |
+
+## Identification
+
+### Symptoms
+
+<Checklist id="symptoms">
+- [ ] Malicious files being served
+- [ ] File hashes don't match expected
+- [ ] Unauthorized access in provider logs
+</Checklist>
+
+### Confirm Compromise
+
+- Compare served files to known good source
+- Check CDN/hosting access logs
+
+## Immediate Actions
+
+<Checklist id="immediate-actions">
+- [ ] Purge CDN cache
+- [ ] Take down site or redirect to maintenance page
+- [ ] Rotate all access credentials
+- [ ] Review access logs for unauthorized activity
+</Checklist>
+
+## Mitigation
+
+<Checklist id="mitigation">
+- [ ] Redeploy from verified source (git, not existing infra)
+- [ ] Verify deployment matches expected
+- [ ] Enable additional access controls
+- [ ] Set up file integrity monitoring
+</Checklist>
+
+## Prevention
+
+<Checklist id="prevention">
+- [ ] Limit hosting/CDN admin access
+- [ ] Enable 2FA on all accounts
+- [ ] Use subresource integrity (SRI)
+- [ ] Implement Content Security Policy (CSP)
+- [ ] Regular access audits
+</Checklist>
+
+## Further reading
+
+- [Runbooks overview](/incident-management/incident-response-template/runbooks/overview):
+  how the runbooks in this section fit together
+- [Frontend Compromise](/incident-management/incident-response-template/runbooks/frontend-compromise):
+  the broader scenario this feeds into
+- [Web Application Security](/front-end-web-app/web-application-security): hardening the delivery path
+- [Incident Response Policy](/incident-management/incident-response-template/incident-response-policy):
+  severity levels, roles, and escalation
+
+---
+
+<ContributeFooter />

@@ -1,0 +1,1613 @@
+{
+  "allTags": [
+    "Business Tools",
+    "Certifications",
+    "Cloud",
+    "Communication Platforms",
+    "Community & Marketing",
+    "DAO",
+    "DeFi",
+    "DevOps",
+    "DevOps Accounts",
+    "Engineer/Developer",
+    "HR",
+    "Legal & Compliance",
+    "Multisig Security",
+    "Operations",
+    "Operations & Strategy",
+    "Protocol",
+    "Risk Management",
+    "SEAL/Initiative",
+    "SFC",
+    "SRE",
+    "Security Specialist",
+    "Smart Contracts",
+    "Treasury Ops",
+    "Whitehat"
+  ],
+  "pageTagsMap": {
+    "/ai-security/ai-browsers": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/ai-security/ai-workflows-developers-vs-non-developers": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing"
+    ],
+    "/ai-security/data-exfiltration-via-generative-systems": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/ai-security/devsecops-isolation-sandboxing-reference": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/ai-security/execution-path-enforcement": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/ai-security/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/ai-security/prompt-injection-defenses": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/awareness/core-awareness-principles": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/awareness/cultivating-a-security-aware-mindset": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/awareness/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/awareness/resources-and-further-reading": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/awareness/staying-informed-and-continuous-learning": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/awareness/understanding-threat-vectors": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/certs/certification-guidelines": [
+      "SEAL/Initiative",
+      "Certifications"
+    ],
+    "/certs/certified-partners": [
+      "SEAL/Initiative",
+      "Certifications"
+    ],
+    "/certs/changelog": [
+      "SEAL/Initiative",
+      "Certifications",
+      "SFC"
+    ],
+    "/certs/contributions": [
+      "SEAL/Initiative",
+      "Certifications",
+      "SFC"
+    ],
+    "/certs/overview": [
+      "SEAL/Initiative",
+      "Certifications"
+    ],
+    "/certs/sfc-devops-infrastructure": [
+      "SEAL/Initiative",
+      "Certifications",
+      "SFC"
+    ],
+    "/certs/sfc-dns-registrar": [
+      "SEAL/Initiative",
+      "Certifications",
+      "SFC"
+    ],
+    "/certs/sfc-identity-accounts": [
+      "SEAL/Initiative",
+      "Certifications",
+      "SFC"
+    ],
+    "/certs/sfc-incident-response": [
+      "SEAL/Initiative",
+      "Certifications",
+      "SFC"
+    ],
+    "/certs/sfc-multisig-ops": [
+      "SEAL/Initiative",
+      "Certifications",
+      "SFC"
+    ],
+    "/certs/sfc-treasury-ops": [
+      "SEAL/Initiative",
+      "Certifications",
+      "SFC"
+    ],
+    "/community-management/discord": [
+      "Community & Marketing",
+      "Security Specialist"
+    ],
+    "/community-management/matrix": [
+      "Community & Marketing"
+    ],
+    "/community-management/overview": [
+      "Community & Marketing"
+    ],
+    "/community-management/session": [
+      "Community & Marketing"
+    ],
+    "/community-management/simplex": [
+      "Community & Marketing"
+    ],
+    "/community-management/telegram": [
+      "Community & Marketing"
+    ],
+    "/community-management/twitter": [
+      "Community & Marketing"
+    ],
+    "/contribute/content-model": [
+      "SEAL/Initiative"
+    ],
+    "/contribute/docs-normalization-checklist": [
+      "SEAL/Initiative"
+    ],
+    "/contribute/style-and-terminology": [
+      "SEAL/Initiative"
+    ],
+    "/devsecops/code-signing": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/devsecops/continuous-integration-continuous-deployment": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE"
+    ],
+    "/devsecops/data-security-upgrade-checklist": [
+      "Engineer/Developer",
+      "Operations & Strategy",
+      "Smart Contracts"
+    ],
+    "/devsecops/developer-targeted-intrusions/execution-paths": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE"
+    ],
+    "/devsecops/developer-targeted-intrusions/handling-untrusted-code": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE"
+    ],
+    "/devsecops/developer-targeted-intrusions/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE"
+    ],
+    "/devsecops/governance-proposal-security": [
+      "Engineer/Developer",
+      "Operations & Strategy",
+      "Smart Contracts"
+    ],
+    "/devsecops/integrated-development-environments": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/devsecops/isolation/capability-based-isolation": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/devsecops/isolation/developer-machine-sandboxing": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/devsecops/isolation/execution-sandboxing-practical-guide": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/devsecops/isolation/execution-sandboxing": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/devsecops/isolation/network-and-resource-isolation": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/devsecops/isolation/sandboxing-and-isolation": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/devsecops/isolation/sandboxing-and-policy-enforcement": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/devsecops/isolation/sandboxing-for-tool-execution": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/devsecops/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE"
+    ],
+    "/devsecops/policy-as-code/ci-pipeline": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE"
+    ],
+    "/devsecops/policy-as-code/governance": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/devsecops/policy-as-code/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE",
+      "Protocol"
+    ],
+    "/devsecops/policy-as-code/release-and-runtime": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE",
+      "Protocol"
+    ],
+    "/devsecops/repository-hardening": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/devsecops/security-testing": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE"
+    ],
+    "/dprk-it-workers/case-studies": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/dprk-it-workers/general-information": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/dprk-it-workers/mitigating-dprk-it-workers": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/dprk-it-workers/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/dprk-it-workers/summary": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/dprk-it-workers/techniques-tactics-and-procedures": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Community & Marketing",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/encryption/cloud-data-encryption": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "Cloud"
+    ],
+    "/encryption/communication-encryption": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/encryption/database-encryption": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/encryption/email-encryption": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/encryption/encryption-in-transit": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/encryption/file-encryption": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/encryption/full-disk-encryption": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/encryption/hardware-encryption": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/encryption/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "Cloud"
+    ],
+    "/encryption/partition-encryption": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/encryption/volume-encryption": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/ens/cross-chain-compatibility": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/ens/data-integrity-verification": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/ens/interface-compliance": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/ens/name-handling-normalization": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/ens/overview": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/ens/smart-contract-integration": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/external-security-reviews/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/external-security-reviews/security-policies-procedures": [
+      "Security Specialist",
+      "Legal & Compliance",
+      "Operations & Strategy",
+      "HR"
+    ],
+    "/external-security-reviews/smart-contracts/expectation": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/external-security-reviews/smart-contracts/manual-review": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "SRE"
+    ],
+    "/external-security-reviews/smart-contracts/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/external-security-reviews/smart-contracts/preparation": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/external-security-reviews/smart-contracts/vendor-selection": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/front-end-web-app/common-vulnerabilities": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/front-end-web-app/mobile-application-security": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/front-end-web-app/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/front-end-web-app/security-tools-resources": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/front-end-web-app/third-party-script-security": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/front-end-web-app/web-application-security": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/governance/compliance-regulatory-requirements": [
+      "Operations & Strategy",
+      "Legal & Compliance",
+      "DevOps",
+      "HR"
+    ],
+    "/governance/council-best-practices": [
+      "Operations & Strategy",
+      "Legal & Compliance"
+    ],
+    "/governance/overview": [
+      "Operations & Strategy",
+      "Legal & Compliance"
+    ],
+    "/governance/rebrands-and-reorgs": [
+      "Operations & Strategy",
+      "Community & Marketing"
+    ],
+    "/governance/risk-management": [
+      "Operations & Strategy",
+      "Legal & Compliance"
+    ],
+    "/governance/security-metrics-kpis": [
+      "Operations & Strategy",
+      "Legal & Compliance"
+    ],
+    "/guides/account-management/discord": [
+      "Community & Marketing",
+      "Security Specialist"
+    ],
+    "/guides/account-management/github": [
+      "DevOps Accounts"
+    ],
+    "/guides/account-management/godaddy": [
+      "DevOps Accounts"
+    ],
+    "/guides/account-management/linear": [
+      "Business Tools"
+    ],
+    "/guides/account-management/matrix": [
+      "Communication Platforms"
+    ],
+    "/guides/account-management/mercury": [
+      "Business Tools"
+    ],
+    "/guides/account-management/notion": [
+      "Business Tools"
+    ],
+    "/guides/account-management/overview": [
+      "Community & Marketing",
+      "Security Specialist",
+      "Engineer/Developer"
+    ],
+    "/guides/account-management/render": [
+      "DevOps Accounts"
+    ],
+    "/guides/account-management/sentry": [
+      "DevOps Accounts"
+    ],
+    "/guides/account-management/session": [
+      "Communication Platforms"
+    ],
+    "/guides/account-management/signal": [
+      "Communication Platforms"
+    ],
+    "/guides/account-management/simplex": [
+      "Communication Platforms"
+    ],
+    "/guides/account-management/slack": [
+      "Communication Platforms"
+    ],
+    "/guides/account-management/telegram": [
+      "Community & Marketing"
+    ],
+    "/guides/account-management/trello": [
+      "Business Tools"
+    ],
+    "/guides/account-management/twitter": [
+      "Community & Marketing"
+    ],
+    "/guides/account-management/vercel": [
+      "DevOps Accounts"
+    ],
+    "/guides/endpoint-security/hardware-security-keys": [
+      "Security Specialist"
+    ],
+    "/guides/endpoint-security/password-manager-endpoint-hardening": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Engineer/Developer"
+    ],
+    "/guides/endpoint-security/ssh-client-and-key-management-hardening": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/guides/endpoint-security/zoom-hardening": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/guides/overview": [
+      "Security Specialist",
+      "Engineer/Developer",
+      "Operations & Strategy",
+      "Community & Marketing"
+    ],
+    "/iam/access-management": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "HR"
+    ],
+    "/iam/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "HR"
+    ],
+    "/iam/role-based-access-control": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "HR"
+    ],
+    "/iam/secure-authentication": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "HR"
+    ],
+    "/incident-management/communication-strategies": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/incident-management/forensic-readiness": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/incident-management/incident-detection-and-response": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/incident-management/incident-response-template/communications": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/incident-management/incident-response-template/contacts": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/incident-management/incident-response-template/incident-response-policy": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/overview": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/incident-management/incident-response-template/roles-and-staffing": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/runbooks/build-pipeline-compromise": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/runbooks/cdn-hosting-compromise": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/runbooks/ddos-attack": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/runbooks/dependency-attack": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/runbooks/dns-hijack": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/runbooks/endpoint-compromise": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/runbooks/frontend-compromise": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/runbooks/key-compromise": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/runbooks/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/runbooks/smart-contract-exploit": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/runbooks/third-party-outage": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/templates/example-incident-log": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/templates/example-post-mortem": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/templates/incident-log-template": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/templates/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/templates/post-mortem-template": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/incident-response-template/templates/runbook-template": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps"
+    ],
+    "/incident-management/lessons-learned": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/incident-management/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/incident-management/playbooks/decentralized-ir": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/incident-management/playbooks/hacked-dprk": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/incident-management/playbooks/hacked-drainer": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/incident-management/playbooks/hacked-elusive-comet": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/incident-management/playbooks/malware": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/incident-management/playbooks/overview": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/incident-management/playbooks/seal-911-war-room-guidelines": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/infrastructure/asset-inventory": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE"
+    ],
+    "/infrastructure/cloud": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "Cloud",
+      "SRE"
+    ],
+    "/infrastructure/ddos-protection": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "Cloud",
+      "SRE"
+    ],
+    "/infrastructure/domain-and-dns-security/dns-basics-and-attacks": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/infrastructure/domain-and-dns-security/dnssec-and-email": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/infrastructure/domain-and-dns-security/monitoring-and-alerting": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/infrastructure/domain-and-dns-security/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/infrastructure/domain-and-dns-security/registrar-and-locks": [
+      "Operations & Strategy",
+      "Security Specialist"
+    ],
+    "/infrastructure/identity-and-access-management": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/infrastructure/network-security": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "Cloud",
+      "SRE"
+    ],
+    "/infrastructure/operating-system-security": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/infrastructure/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "Cloud",
+      "SRE"
+    ],
+    "/infrastructure/zero-trust-principles": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/intro/attack-surface": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/intro/introduction": [
+      "SEAL/Initiative"
+    ],
+    "/intro/overview-of-each-framework": [
+      "Operations & Strategy",
+      "Security Specialist"
+    ],
+    "/intro/security-map": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/monitoring/guidelines": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/monitoring/overview": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/monitoring/thresholds": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/monitoring/tools": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/multisig-for-protocols/backup-signing-and-infrastructure": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/communication-setup": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/emergency-procedures": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/implementation-checklist": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/incident-reporting": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/joining-a-multisig": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/key-takeaways": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/offboarding": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/personal-security-opsec": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/planning-and-classification": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/registration-and-documentation": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/runbooks/emergency-pause": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/runbooks/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/runbooks/signer-rotation": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/runbooks/threshold-change": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/runbooks/token-transfer": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/setup-and-configuration": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/multisig-for-protocols/use-case-specific-requirements": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Multisig Security"
+    ],
+    "/opsec/appendices/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/opsec/browser/overview": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/opsec/continuous-improvement-metrics": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/opsec/control-domains/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/opsec/core-concepts/implementation-process": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/opsec/core-concepts/security-fundamentals": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/opsec/core-concepts/web3-considerations": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/opsec/endpoint/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "HR"
+    ],
+    "/opsec/google/overview": [
+      "Community & Marketing",
+      "Operations & Strategy",
+      "Security Specialist"
+    ],
+    "/opsec/integration/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/opsec/mfa/overview": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/opsec/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/opsec/passwords/managers": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/opsec/passwords/overview": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/opsec/passwords/rootaccounts": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/opsec/passwords/sso": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/opsec/secure-operating-systems": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Engineer/Developer"
+    ],
+    "/opsec/travel/guide": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Engineer/Developer",
+      "DevOps",
+      "SRE"
+    ],
+    "/opsec/travel/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Engineer/Developer",
+      "DevOps",
+      "SRE"
+    ],
+    "/opsec/travel/tldr": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Engineer/Developer",
+      "DevOps",
+      "SRE"
+    ],
+    "/physical-security/coercion-and-duress/checklist": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/physical-security/coercion-and-duress/defensive-design-principles": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/physical-security/coercion-and-duress/incident-response": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/physical-security/coercion-and-duress/overview": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/physical-security/coercion-and-duress/personal-and-family-safety": [
+      "Security Specialist",
+      "HR",
+      "Operations & Strategy"
+    ],
+    "/physical-security/coercion-and-duress/recovery-and-resilience": [
+      "Security Specialist",
+      "HR",
+      "Operations & Strategy"
+    ],
+    "/physical-security/coercion-and-duress/risk-factors-and-early-signals": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/physical-security/coercion-and-duress/threat-model": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/physical-security/coercion-and-duress/transaction-flows-under-duress": [
+      "Security Specialist",
+      "Engineer/Developer",
+      "Operations & Strategy"
+    ],
+    "/physical-security/coercion-and-duress/wallet-and-key-architecture": [
+      "Security Specialist",
+      "Engineer/Developer"
+    ],
+    "/physical-security/facility-and-perimeter/overview": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/physical-security/overview": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/physical-security/physical-counter-surveillance/overview": [
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/physical-security/supply-chain-physical-integrity/overview": [
+      "Security Specialist",
+      "Engineer/Developer",
+      "Operations & Strategy"
+    ],
+    "/privacy/data-removal-services": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/privacy/digital-footprint": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/privacy/encrypted-communication-tools": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/privacy/financial-privacy-services": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/privacy/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/privacy/privacy-focused-operating-systems-tools": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/privacy/secure-browsing": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/privacy/vpns/attack-surfaces-public-networks": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/privacy/vpns/https-vs-vpn": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/privacy/vpns/overview": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/privacy/vpns/vpn-limitations": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/privacy/vpns/vpn-providers-and-tools": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/privacy/vpns/when-to-use-vpn": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/safe-harbor/on-chain-adoption-guide": [
+      "SEAL/Initiative",
+      "Protocol",
+      "DAO",
+      "Whitehat"
+    ],
+    "/safe-harbor/overview": [
+      "SEAL/Initiative",
+      "Protocol",
+      "DAO",
+      "Whitehat"
+    ],
+    "/safe-harbor/scope-terms": [
+      "SEAL/Initiative",
+      "Protocol",
+      "DAO",
+      "Whitehat"
+    ],
+    "/safe-harbor/self-adoption-guide": [
+      "SEAL/Initiative",
+      "Protocol",
+      "DAO",
+      "Whitehat"
+    ],
+    "/safe-harbor/self-checklist": [
+      "SEAL/Initiative",
+      "Protocol",
+      "DAO",
+      "Whitehat"
+    ],
+    "/safe-harbor/whitehat": [
+      "SEAL/Initiative",
+      "Whitehat"
+    ],
+    "/secure-software-development/code-reviews-peer-audits": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/secure-software-development/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/secure-software-development/secure-code-repositories-version-control": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/secure-software-development/secure-coding-standards-guidelines": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/secure-software-development/threat-modeling-secure-design-principles": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/security-automation/compliance-checks": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "Cloud",
+      "SRE"
+    ],
+    "/security-automation/infrastructure-as-code": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "Cloud",
+      "SRE"
+    ],
+    "/security-automation/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "Cloud",
+      "SRE"
+    ],
+    "/security-automation/threat-detection-response": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE"
+    ],
+    "/security-testing/formal-verification": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/security-testing/fuzz-testing": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/security-testing/integration-testing": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/security-testing/mutation-testing": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/security-testing/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/security-testing/static-analysis": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/security-testing/unit-testing": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy",
+      "DevOps",
+      "SRE"
+    ],
+    "/supply-chain/dependency-awareness": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/supply-chain/incident-response-supply-chain": [
+      "Security Specialist",
+      "SRE",
+      "Engineer/Developer"
+    ],
+    "/supply-chain/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/supply-chain/private-registries-and-mirrors": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps",
+      "SRE"
+    ],
+    "/supply-chain/supply-chain-levels-software-artifacts": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/supply-chain/vendor-risk-management": [
+      "Operations & Strategy",
+      "Security Specialist",
+      "Engineer/Developer"
+    ],
+    "/supply-chain/web3-supply-chain-threats": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/threat-modeling/create-maintain-threat-models": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/threat-modeling/identity-mitigate-threats": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/threat-modeling/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/treasury-operations/classification": [
+      "Treasury Ops",
+      "Operations",
+      "Risk Management"
+    ],
+    "/treasury-operations/enhanced-controls": [
+      "Treasury Ops",
+      "Operations",
+      "Risk Management"
+    ],
+    "/treasury-operations/overview": [
+      "Treasury Ops",
+      "Operations",
+      "Risk Management"
+    ],
+    "/treasury-operations/registration-documents": [
+      "Treasury Ops",
+      "Operations",
+      "Risk Management"
+    ],
+    "/treasury-operations/transaction-verification": [
+      "Treasury Ops",
+      "Protocol",
+      "Operations",
+      "Risk Management",
+      "DeFi"
+    ],
+    "/user-team-security/overview": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/user-team-security/phishing-social-engineering": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/user-team-security/security-aware-culture": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "HR"
+    ],
+    "/user-team-security/security-training": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "HR",
+      "Engineer/Developer"
+    ],
+    "/vulnerability-disclosure/bug-bounties": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/vulnerability-disclosure/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "DevOps"
+    ],
+    "/vulnerability-disclosure/security-contact": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/wallet-security/account-abstraction": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/wallet-security/cold-vs-hot-wallet": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/wallet-security/custodial-vs-non-custodial": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/wallet-security/encumbered-wallets": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/wallet-security/for-beginners-and-small-balances": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/wallet-security/hardware-wallets": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/wallet-security/intermediates-and-medium-funds": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/wallet-security/overview": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/wallet-security/secure-multisig-best-practices": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Engineer/Developer"
+    ],
+    "/wallet-security/seed-phrase-management": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/wallet-security/signing-and-verification/secure-multisig-safe-verification": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/wallet-security/signing-and-verification/secure-multisig-signing-process": [
+      "Security Specialist",
+      "Operations & Strategy",
+      "Engineer/Developer"
+    ],
+    "/wallet-security/signing-and-verification/secure-multisig-squads-verification": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/wallet-security/signing-and-verification/signing-verification": [
+      "Engineer/Developer",
+      "Security Specialist",
+      "Operations & Strategy"
+    ],
+    "/wallet-security/signing-and-verification/verifying-7702": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/wallet-security/signing-and-verification/verifying-standard-transactions": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/wallet-security/signing-schemes": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/wallet-security/smart-contract-interaction-security": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/wallet-security/software-wallets": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ],
+    "/wallet-security/tools-and-resources": [
+      "Engineer/Developer",
+      "Security Specialist"
+    ]
+  },
+  "sectionMappings": {
+    "Interactive content": "intro",
+    "AI Security": "ai-security",
+    "Awareness": "awareness",
+    "Community Management": "community-management",
+    "DevSecOps": "devsecops",
+    "Isolation & Sandboxing": "isolation",
+    "Developer-Targeted Intrusions": "developer-targeted-intrusions",
+    "Policy as Code": "policy-as-code",
+    "DPRK IT Workers": "dprk-it-workers",
+    "Encryption": "encryption",
+    "ENS": "ens",
+    "External Security Reviews": "external-security-reviews",
+    "Smart Contract Audits": "smart-contracts",
+    "Front-End/Web Application": "front-end-web-app",
+    "Governance": "governance",
+    "Identity and Access Management IAM": "iam",
+    "Incident Management": "incident-management",
+    "Playbooks": "playbooks",
+    "Incident Response Template": "incident-response-template",
+    "Templates": "templates",
+    "Runbooks": "runbooks",
+    "Infrastructure": "infrastructure",
+    "Domain & DNS Security": "domain-and-dns-security",
+    "Monitoring": "monitoring",
+    "Multisig for Protocols": "multisig-for-protocols",
+    "Multisig Administration": "multisig-for-protocols",
+    "Operational Runbooks": "runbooks",
+    "For Signers": "multisig-for-protocols",
+    "Operational Security": "opsec",
+    "OpSec Core Concepts": "core-concepts",
+    "Security Fundamentals": "passwords",
+    "Implementation Process": "passwords",
+    "Web3 considerations": "passwords",
+    "Secure Operating Systems": "passwords",
+    "Endpoint Security": "endpoint-security",
+    "Browser Security": "passwords",
+    "Multi-Factor Authentication": "passwords",
+    "Password Management": "passwords",
+    "While Traveling": "travel",
+    "Physical Security": "physical-security",
+    "Coercion & Duress": "coercion-and-duress",
+    "Facility & Perimeter Security": "facility-and-perimeter",
+    "Physical Counter-Surveillance": "physical-counter-surveillance",
+    "Supply Chain Physical Integrity": "supply-chain-physical-integrity",
+    "Privacy": "privacy",
+    "VPN Services": "vpns",
+    "Safe Harbor": "safe-harbor",
+    "Secure Software Development": "secure-software-development",
+    "Security Automation": "security-automation",
+    "Security Testing": "security-testing",
+    "Supply Chain": "supply-chain",
+    "Threat Modeling": "threat-modeling",
+    "Treasury Operations": "treasury-operations",
+    "User and Team Security": "user-team-security",
+    "Vulnerability Disclosure": "vulnerability-disclosure",
+    "Wallet Security": "wallet-security",
+    "Signing & Verification": "signing-and-verification",
+    "Guides": "guides",
+    "Account Management": "account-management",
+    "SEAL Certifications": "certs",
+    "SEAL Certification Frameworks": "certs",
+    "Contributing": "contribute"
+  }
+}

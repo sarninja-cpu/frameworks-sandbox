@@ -1,0 +1,58 @@
+---
+title: "Access Management | Security Alliance"
+description: "Manage access with JIT grants, timely revocation, recurring reviews, deliberate onboarding and offboarding, and logging of sensitive access paths."
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+  - HR
+contributors:
+  - role: wrote
+    users: []
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Access Management Best Practices
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Access must be right-sized, time-bounded when possible, reviewed on a schedule, and revoked the
+> day a role ends — standing privilege is residual attack surface.
+
+Access management ensures people have the right access at the right time and lose it when they no longer need it.
+Strong lifecycle handling limits unauthorized use and reduces insider and ex-employee risk across SaaS, cloud, and
+code hosts.
+
+## Practices
+
+- **Just-in-time (JIT) access:** Prefer temporary elevation for rare admin tasks over standing admin roles.
+- **Timely revocation:** Revoke access when people leave or change roles; treat offboarding as a security control, not
+  only HR paperwork.
+- **Access reviews:** Review membership of privileged groups on a fixed cadence and after major org changes.
+- **Onboarding and offboarding processes:** Standardize grants and removals so accounts are not improvised in chat.
+- **Access logging and monitoring:** Log access to critical services and alert on anomalous use.
+
+## Priority controls
+
+1. Grant the minimum access needed for the role (least privilege).
+2. Require multi-party control for critical tasks when a single ambitious or compromised actor could cause severe harm.
+3. Prefer automated provisioning and deprovisioning tied to hiring system lifecycle events when the stack allows it.
+
+## Further reading
+
+- [IAM overview](/iam/overview)
+- [Role-based access control](/iam/role-based-access-control)
+- [Secure authentication](/iam/secure-authentication)
+- [DPRK IT Workers](/dprk-it-workers/overview)
+- [Guides — Account Management](/guides/account-management/overview)
+
+---
+
+<ContributeFooter />

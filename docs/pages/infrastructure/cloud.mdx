@@ -1,0 +1,74 @@
+---
+title: "Cloud Infrastructure | Security Alliance"
+description: "Secure cloud infrastructure with RBAC, MFA, encryption, VPCs, and audit logging, plus hardening guides for AWS, Azure, and GCP and open-source audit tools."
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+  - Cloud
+  - SRE
+contributors:
+  - role: wrote
+    users: []
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Cloud Infrastructure
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Cloud security is IAM, encryption, network boundary, and logging done consistently. Misconfigured
+> public storage and overly broad roles remain common failure modes.
+
+Securing your cloud infrastructure could be considered as important as securing your decentralized application, as a lot
+of users will be interacting with your dapp through the cloud provider. Some best practices to consider are:
+
+1. Implement strict access controls and identity management to ensure that only authorized individuals can interact with
+cloud resources. Use role-based access control (RBAC) and multi-factor authentication (MFA).
+2. Encrypt data both in transit and at rest. Use managed encryption keys or bring your own keys (BYOK) for enhanced
+security.
+3. Configure virtual private clouds (VPCs), implement firewalls, and monitor network traffic to protect against
+unauthorized access and threats.
+4. Set up comprehensive logging, monitoring, and threat detection systems to identify and respond to security incidents
+in real-time. Use services like AWS CloudTrail, Azure Monitor, and Google Cloud Logging.
+5. Implement high availability, data backup, and disaster recovery plans to protect against service disruptions. Use
+automated fail-over and replication strategies.
+6. Ensure compliance with regulatory requirements (e.g., GDPR, MiCA).
+
+## Cloud Provider Hardening Guides
+
+All cloud providers have hardening guides that provide step-by-step instructions and best practices for securing cloud
+infrastructure:
+
+- **AWS**: [Security, Identity, and Compliance](https://aws.amazon.com/architecture/security-identity-compliance/)
+- **Azure**:
+[Best Practices and Patterns](https://learn.microsoft.com/en-us/azure/security/fundamentals/best-practices-and-patterns)
+- **GCP**: [Security Best Practices](https://cloud.google.com/security/best-practices)
+
+## Open Source Tools
+
+To aid with vulnerability detection and compliance, you could consider using the following open-source tools:
+
+- **CloudSploit**: [CloudSploit](https://github.com/aquasecurity/cloudsploit)
+- **Prowler**: [Prowler](https://github.com/prowler-cloud/prowler)
+- **S3Scanner (AWS)**: [S3Scanner](https://github.com/sa7mon/S3Scanner)
+- **Zeus (AWS)**: [Zeus](https://github.com/DenizParlak/Zeus)
+
+## Further reading
+
+- [Infrastructure overview](/infrastructure/overview): how the pages of this framework fit together
+- [Access Management](/iam/access-management): the RBAC and lifecycle practice behind cloud control planes
+- [Network Security](/infrastructure/network-security): VPC boundaries, firewalls, and traffic monitoring
+- [AWS Well-Architected Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html):
+  a reference model for reviewing a cloud footprint
+
+---
+
+<ContributeFooter />

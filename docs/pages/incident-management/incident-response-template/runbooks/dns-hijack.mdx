@@ -1,0 +1,92 @@
+---
+title: "Runbook: DNS Hijack | Security Alliance"
+description: "Stub runbook. Customize with your DNS provider details and procedures. Lock registrar controls, restore authoritative records, force cache abandonment"
+tags:
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+contributors:
+  - role: wrote
+    users: [isaac]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter, Checklist } from '../../../../../components'
+
+# Runbook: DNS Hijack
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: DNS hijacks redirect users to attacker infrastructure. Lock
+> registrar controls, restore authoritative records, force cache abandonment, and verify
+> resolution from multiple resolvers.
+
+**Stub runbook.** Customize with your DNS provider details and procedures.
+
+## Quick Reference
+
+| Field | Value |
+| ------- | ------- |
+| **Typical Severity** | P1 |
+| **Primary Responder** | Infrastructure SME |
+| **Last Updated** | [Date] |
+| **Owner** | [Name] |
+
+## Identification
+
+### Symptoms
+
+<Checklist id="symptoms">
+- [ ] Domain pointing to wrong IP
+- [ ] Users redirected to malicious site
+- [ ] SSL certificate errors (attacker using different cert)
+</Checklist>
+
+### Confirm DNS Hijack
+
+```
+dig yourdomain.com
+# Compare output to expected IP
+```
+
+## Immediate Actions
+
+<Checklist id="immediate-actions">
+1. [ ] Regain access to DNS provider account
+2. [ ] Enable 2FA if not already enabled
+3. [ ] Point DNS to known good infrastructure or maintenance page
+4. [ ] Enable DNS lock / registrar lock
+</Checklist>
+
+## Mitigation
+
+[Document your specific DNS provider procedures here]
+
+## Prevention
+
+<Checklist id="prevention">
+- [ ] Enable registrar lock
+- [ ] Use DNSSEC
+- [ ] Enable 2FA on DNS provider
+- [ ] Limit DNS admin access
+- [ ] Monitor DNS records for changes
+</Checklist>
+
+## Further reading
+
+- [Runbooks overview](/incident-management/incident-response-template/runbooks/overview):
+  how the runbooks in this section fit together
+- [Frontend Compromise](/incident-management/incident-response-template/runbooks/frontend-compromise):
+  what users see when DNS is redirected
+- [Domain & DNS Security](/infrastructure/domain-and-dns-security/overview):
+  registrar and record controls that prevent this
+- [Incident Response Policy](/incident-management/incident-response-template/incident-response-policy):
+  severity levels, roles, and escalation
+
+---
+
+<ContributeFooter />

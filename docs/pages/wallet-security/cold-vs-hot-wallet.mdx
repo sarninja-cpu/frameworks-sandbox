@@ -1,0 +1,113 @@
+---
+title: "Cold Vs Hot Wallet | Security Alliance"
+description: "Compare cold vs hot wallets: security trade-offs, use cases, and risk profiles. Hardware wallets, paper wallets. The primary distinction between wallet"
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Operations & Strategy
+contributors:
+  - role: wrote
+    users: [pinalikefruit]
+  - role: reviewed
+    users: [Coinspect, patrickalphac]
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Cold vs. Hot Wallets
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Hot wallets maximize convenience and online exposure; cold wallets reduce remote attack surface
+> at the cost of operational friction. Match fund tier to exposure.
+
+The primary distinction between wallet types is their connectivity to the internet. This factor dictates their security
+threat model, risk profile, and ideal use cases.
+
+## Cold Wallets
+
+### What Are They?
+
+Cold wallets are cryptocurrency wallets that store private keys in an offline environment. By being disconnected from
+the internet, or "air-gapped," by default, they provide the highest level of security against online attacks like
+malware and phishing.
+
+Transactions are signed offline and then broadcast to the network using a connected device, ensuring the private keys
+are stored on device with minimal connectivity.
+
+> ❓ Did you know?
+>
+> Most cold wallets still need a way to exchange transaction data with a connected device, such as via USB, Bluetooth,
+> QR codes, or SD cards. This does not make them hot by itself. The key distinction is whether the private key remains
+> isolated from the internet-connected system during signing.
+
+### Types of Cold Wallets
+
+- **Hardware Wallets**: Dedicated physical devices that store private keys offline and sign transactions without
+exposing the keys to a connected internet device.
+- **Paper Wallets**: Physical printouts or handwritten notes of private keys and QR codes.
+- **Software Wallets on Air-Gapped Devices**: Standard wallet software installed on a device that is permanently
+disconnected from the internet, used for offline transaction signing.
+- **Brain Wallets**: Private keys that are memorized.
+
+Account abstraction wallets and multisig wallets are separate account and authorization models, not types of cold
+wallets. Either approach can use hot signers, cold signers, or a mix of both.
+
+### Use Cases
+
+- **Long-Term Storage**: Ideal for storing large amounts of cryptocurrency for extended periods.
+- **High-Security Needs**: Essential for individuals securing significant value and operating with a low risk tolerance.
+
+## Hot Wallets
+
+### What Are They?
+
+Hot wallets are actively and consistently connected to the internet. This connectivity makes them highly convenient for
+daily use but also inherently more vulnerable to online attacks.
+
+### Types of Hot Wallets
+
+- **Browser Wallets (Extensions)**: Software that integrates directly into a web browser, allowing seamless interaction
+with dApps.
+- **Mobile Wallets**: Apps installed on smartphones.
+
+### Use Cases
+
+- **Daily Transactions & dApp Interaction**: Perfect for users who need quick and frequent access to their funds for
+interacting with applications.
+- **Small Balances**: Suitable for storing smaller, non-critical amounts of cryptocurrency that are used regularly.
+
+## Comparison
+
+| **Feature**     | **Cold Wallets**     | **Hot Wallets**         |
+| :-------------- | :------------------- | :---------------------- |
+| **Convenience** | Low                  | High                    |
+| **Use Case**    | Long-term storage    | Daily transactions      |
+| **Risk**        | Physical loss/damage | Online attacks, malware |
+
+## **Key Security Considerations**
+
+Regardless of the type, non-custodial wallets place the full burden of security on the user:
+
+- **Online Vulnerabilities**: If the device they are on (computer or phone) is compromised, your assets can be stolen.
+- **Supply Chain Attacks**: Be cautious of both software and hardware integrity. Always download wallet software from
+official sources and purchase hardware wallets directly from the manufacturer to avoid receiving a tampered device.
+- **Strong Password:** Follow [Strong Password](/opsec/passwords/overview#what-is-a-strong-password) rules.
+- **Minimal Auto-Lock Time:** Set auto-lock to 5-15 minutes. Shorter time limit exposure if unattended and reduce how
+long decrypted keys stay in memory.
+
+## Further reading
+
+- [Wallet Security overview](/wallet-security/overview): how the pages of this framework fit together
+- [For Beginners & Small Balances](/wallet-security/for-beginners-and-small-balances): a hot-wallet-first setup done
+  safely
+- [For Intermediates & Medium Balances](/wallet-security/intermediates-and-medium-funds): adding cold storage as
+  balances grow
+- [Seed Phrase Management](/wallet-security/seed-phrase-management): the backup practices both wallet types depend on
+
+---
+
+<ContributeFooter />

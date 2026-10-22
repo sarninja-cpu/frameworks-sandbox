@@ -1,0 +1,71 @@
+---
+title: "Monitoring Alert Thresholds | SEAL"
+description: "Configure on-chain alert thresholds from baselines: multi-layered rules, adaptive updates, and anomaly detection without drowning responders in noise."
+tags:
+  - Engineer/Developer
+  - Security Specialist
+contributors:
+  - role: wrote
+    users: [JosepBove]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Defining Thresholds for On-Chain Monitoring
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Thresholds must catch meaningful deviation from normal protocol behavior without drowning
+> responders in false positives — and they must be reviewed as activity patterns change.
+
+Setting thresholds is a balance: detect unusual activity early without drowning operators in noise. For what to monitor
+and how to design alerting ownership, see [Guidelines](/monitoring/guidelines).
+
+## Understand normal activity patterns
+
+1. Establish baseline metrics for normal activity, such as average transaction volumes and typical token minting rates
+   (if any).
+2. Use historical data to understand activity patterns and identify deviations from the norm.
+
+## Set thresholds for alerts
+
+1. Define thresholds for large fund transfers from project wallets, considering both absolute amounts and relative
+   percentages.
+2. Set thresholds for token minting events, including volume minted and mint frequency.
+3. Establish thresholds for changes in contract ownership or significant modifications to contract code.
+
+## Adjust thresholds over time
+
+1. Prefer adaptive thresholds that can adjust based on changing activity patterns and emerging threats when tooling
+   supports them.
+2. Periodically review and update thresholds so they remain relevant and effective.
+
+## Multi-layered thresholds
+
+1. Use primary thresholds for critical alerts and secondary thresholds for less urgent notifications.
+2. Combine metrics where single-signal rules produce too many false positives.
+
+## Anomaly detection
+
+It is difficult to enumerate every alert a project will eventually need. Anomaly detection systems that compare live
+behavior to recent history can catch novel deviations. Example: if roughly 4% of tokens typically change owners each day
+and 20% change owners in ten minutes, that ramp may warrant investigation even without a pre-written absolute
+threshold.
+
+Several tools in the [Tools](/monitoring/tools) catalog offer built-in anomaly detection. Hypernative uses ML-based
+behavioral modeling, and Tenderly supports custom alert rules that can approximate anomaly thresholds.
+
+## Further reading
+
+- [Monitoring guidelines](/monitoring/guidelines): coverage objectives and alert ownership
+- [On-chain monitoring tools](/monitoring/tools): platforms with threshold and anomaly features
+- [Incident Management](/incident-management/overview): response when a threshold fires
+
+---
+
+<ContributeFooter />

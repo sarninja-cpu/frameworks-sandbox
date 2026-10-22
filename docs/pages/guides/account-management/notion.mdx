@@ -1,0 +1,114 @@
+---
+title: "Notion Security | Security Alliance"
+description: "Secure your Notion workspace with 2FA, restricted sharing settings, and enterprise-level security controls to protect sensitive documentation."
+tags:
+  - Business Tools
+contributors:
+  - role: wrote
+    users: [auditware]
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter, Checklist } from '../../../../components'
+
+# Notion Security
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+## Summary
+
+> 🔑 **Key Takeaway**: Secure your Notion account by enabling 2-step verification with an authenticator app
+> (not SMS), disabling support access, and for workspaces, restricting publishing, export, and guest access to
+> prevent unauthorized data exposure.
+
+This checklist is adapted from [Auditware's W3OSC](https://github.com/W3OSC/web3-opsec-standard) standards.
+
+## For Individuals
+
+These settings apply to your personal Notion account. All team members and admins should configure these on their own accounts.
+
+### Account Security Checklist
+
+- Account Settings:
+<Checklist id="account-security-checklist">
+  - [ ]  My account > Password > If enabled (not using SSO), Enable **2-step verification**
+    - Use **Code from authenticator**
+    - DO NOT use **Text me a code**
+  - [ ]  My account > Support access > **Disabled**
+  - [ ]  My account > Devices > Log out of any unnecessary
+  - [ ]  My settings > Privacy > Cookie Settings > Only **Strictly necessary**
+  - [ ]  My settings > Privacy > Profile discoverability > **Disabled**
+  - [ ]  My connections > Review and disconnect any unnecessary
+
+</Checklist>
+
+## For Team Members
+
+These guidelines apply to team members who have access to shared Notion workspaces but don't have full administrative access.
+
+Team members should:
+
+- Ensure their individual account settings are configured according to the checklist above
+- Be mindful of page sharing settings and avoid publishing or sharing pages externally without approval
+- Report any suspicious activity or unauthorized access requests to workspace admins
+
+## For Admins
+
+These settings and practices apply to Notion workspace administrators with elevated privileges.
+
+### Workspace Settings
+
+#### Member and Site Management
+
+<Checklist id="member-and-site-management">
+- [ ]  People > Review members and guests
+- [ ]  Sites > Review and unpublish any unnecessary pages
+</Checklist>
+
+#### Security & Data Settings
+
+- Security & data > [[1]](#1-enterprise-features)
+<Checklist id="security-data-settings">
+  - [ ]  Disable publishing sites and forms > **On**
+  - [ ]  Disable duplicating pages to other workspaces > **On**
+  - [ ]  Disable export > **On**
+  - [ ]  Allow page access requests from non-members > **Off**
+  - [ ]  Disable members inviting guests to pages > **On**
+  - [ ]  Allow members to request adding guests > **Off**
+  - [ ]  Allow members to request adding other members > **Off**
+  - [ ]  Allow any user to request to be added as a member of the workspace > **Off**
+  - [ ]  Allow page guests to request to be added as members to the workspace > **Off**
+
+</Checklist>
+
+#### Connections Management
+
+- Connections >
+<Checklist id="connections-management">
+  - [ ]  Restrict members from adding connections > **Restricted**
+  - [ ]  Allow webhooks in automations > **Disabled**
+  - [ ]  Review the connections and disconnection any unnecessary
+
+</Checklist>
+
+## Notes
+
+### [1] Enterprise Features
+
+Some of these settings require an Enterprise workspace plan. These can be omitted, but it is recommended to consider
+upgrading your plan for the security benefits if the size and/or risk tolerance of your organization warrants the
+extra protections.
+
+## Further reading
+
+- [Account Management overview](/guides/account-management/overview): how these product guides fit together
+- [Role-Based Access Control](/iam/role-based-access-control): structuring workspace and page permissions
+- [Multi-Factor Authentication](/opsec/mfa/overview): choosing factors before enabling them here
+- [Notion: two-step verification](https://www.notion.com/help/two-step-verification): vendor documentation for current
+  UI paths
+
+---
+
+<ContributeFooter />

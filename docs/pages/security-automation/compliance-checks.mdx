@@ -1,0 +1,85 @@
+---
+title: "Automated Compliance Checks | SEAL"
+description: "Automate compliance monitoring with AWS Config, Azure Policy, HashiCorp Sentinel, and OpenSCAP to catch drift and enforce security policies continuously."
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - DevOps
+  - Cloud
+  - SRE
+contributors:
+  - role: wrote
+    users: []
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Compliance Checks
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Automated compliance checks catch configuration drift against written policy. They do not replace
+> choosing the right policies or remediating failures.
+
+Automating compliance checks helps projects measure adherence to security policies, internal standards, and (where
+applicable) regulatory expectations. Tools continuously monitor, assess, and report status so teams see drift before
+audit season—or before an attacker finds the open path.
+
+## Benefits
+
+1. **Continuous monitoring**
+   - Ongoing evaluation instead of point-in-time screenshots.
+   - Lower risk of silent drift after manual changes.
+2. **Efficiency**
+   - Repetitive assessment work moves off overloaded security staff.
+   - Faster feedback in delivery pipelines.
+3. **Consistency**
+   - Repeatable checks reduce human scoring variance.
+
+## Tools
+
+Product names and capabilities change; verify current features before adoption.
+
+1. **AWS Config**
+   - Continuously records AWS resource configuration and evaluates predefined or custom rules.
+   - Pros: deep AWS integration, customizable rules.
+   - Cons: AWS-oriented; multi-cloud still needs other coverage.
+2. **Azure Policy**
+   - Define, assign, and manage policies to enforce standards and report compliance at scale.
+   - Pros: integrated with Azure; custom policies supported.
+   - Cons: Azure-oriented.
+3. **HashiCorp Sentinel**
+   - Policy-as-code across HashiCorp tooling and IaC workflows.
+   - Pros: flexible; strong Terraform connection for many teams.
+   - Cons: requires policy-language expertise.
+4. **OpenSCAP**
+   - Open-source evaluation against security content (for example CIS- and NIST-oriented benchmarks, depending on
+     content packs).
+   - Pros: open-source; multiple content frameworks.
+   - Cons: must be operated and kept content-current.
+
+## Best practices
+
+1. Integrate compliance evaluation into the CI/CD path so code and infrastructure changes fail closed (or clearly raise
+   exceptions) when they violate must-fix policy.
+2. Map automated rules to documented controls so failures name an owner and a remediation path.
+3. Prefer preventative policy (deny/deploy-time) for high-impact misconfigurations; use detective checks where prevention
+   is not yet practical.
+4. Review exception lists on a fixed cadence—permanent mute rules recreate drift under a new name.
+
+## Further reading
+
+- [AWS Config](https://docs.aws.amazon.com/config/)
+- [Azure Policy](https://learn.microsoft.com/en-us/azure/governance/policy/)
+- [HashiCorp Sentinel](https://developer.hashicorp.com/sentinel)
+- [OpenSCAP](https://www.open-scap.org/)
+- [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)
+
+---
+
+<ContributeFooter />

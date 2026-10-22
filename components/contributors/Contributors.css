@@ -1,0 +1,728 @@
+.contributors-page-container {
+  margin: 2rem 0;
+}
+
+/* Stats Overview */
+.contributors-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding: 0 0.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, var(--sidebar-bg) 0%, var(--quote-bg, rgba(0, 0, 0, 0.05)) 100%);
+  border: 2px solid var(--theme-popup-border);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.stat-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: rgba(128, 128, 128, 0.25);
+}
+
+.stat-item.highlight {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-color: #fbbf24;
+}
+
+.stat-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  color: var(--fg);
+  background: linear-gradient(135deg, var(--fg) 0%, rgba(128, 128, 128, 0.25) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--fg);
+  opacity: 0.7;
+}
+
+/* Group Heading */
+.contributors-group-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.group-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.group-label {
+  flex: 1;
+}
+
+.group-count {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--fg);
+  opacity: 0.5;
+  padding: 0.25rem 0.75rem;
+  background: var(--quote-bg, rgba(0, 0, 0, 0.05));
+  border-radius: 12px;
+}
+
+.contributors-description {
+  max-width: 800px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  font-size: 1.0625rem;
+  color: var(--fg);
+  opacity: 0.9;
+}
+
+.contributors-divider {
+  margin: 3rem 0;
+  border: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--theme-popup-border), transparent);
+}
+
+.contributors-group {
+  margin-bottom: 4rem;
+}
+
+.contributors-group h2 {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Grid Layout */
+.contributors-page-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+  padding: 0 0.5rem;
+  max-width: 1400px;
+}
+
+/* Contributor Card */
+.contributors-page-card {
+  background: var(--sidebar-bg);
+  border: 1px solid var(--theme-popup-border);
+  border-radius: 6px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease, z-index 0s 0.2s;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 0.875rem;
+  position: relative;
+  min-height: 0;
+  min-width: 0;
+}
+
+.contributors-page-card:hover {
+  transform: translateY(-3px);
+  /* Above neighbouring cards only. See the stacking note below. */
+  z-index: 3;
+  transition: all 0.2s ease, z-index 0s;
+}
+
+/* Content wrapper */
+.contributors-page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Avatar */
+.avatar-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.contributors-page-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--theme-popup-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--sidebar-bg);
+  transition: all 0.3s ease;
+}
+
+/* Avatar Badge for top contributors */
+.avatar-badge {
+  position: absolute;
+  bottom: -4px;
+  right: calc(50% - 34px - 6px);
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  border: 2px solid var(--sidebar-bg);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+  z-index: 3;
+}
+
+.avatar-badge.legendary {
+  background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+}
+
+/* Role badge overlay on avatar corner.
+   Offset tracks the avatar: half its width (26px) plus a 6px overhang. */
+.role-badge-overlay {
+  position: absolute;
+  bottom: -4px;
+  right: calc(50% - 32px);
+  width: 22px;
+  height: 22px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.role-badge-overlay .role-badge-icon-svg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--sidebar-bg);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.role-badge-overlay .role-badge-icon-svg svg {
+  width: 100%;
+  height: 100%;
+}
+
+.role-badge-overlay:hover {
+  z-index: 99999;
+}
+
+.role-badge-overlay:hover .role-badge-icon-svg {
+  transform: scale(1.15);
+}
+
+/* Simple tooltip for role badge */
+.role-badge-simple-tooltip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 8px);
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: white;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  z-index: 999999;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.role-badge-simple-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right-color: #111827;
+}
+
+.role-badge-overlay:hover .role-badge-simple-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Light mode for simple role tooltip */
+:root:not([data-vocs-theme='dark']) .role-badge-simple-tooltip {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  color: #111827;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+:root:not([data-vocs-theme='dark']) .role-badge-simple-tooltip::before {
+  border-right-color: #ffffff;
+}
+
+/* Header Section */
+.contributors-page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.contributors-page-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  word-break: break-word;
+  color: var(--fg);
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Badges Row */
+.contributor-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Badge Container */
+.contributors-page-badge {
+  font-size: 0.6875rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.steward-badge {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lead-badge {
+  background: linear-gradient(135deg, #e34c26 0%, #c13216 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.core-badge {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contributors-page-card:hover .contributors-page-badge {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.badge-count-number {
+  font-size: 0.8125rem;
+  color: var(--fg);
+  line-height: 1;
+}
+
+.badge-count-icon {
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+/* Steward Info */
+.contributors-page-steward {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125rem;
+  font-size: 0.7rem;
+  color: var(--fg);
+  padding: 0.375rem 0.5rem;
+  border: 1px solid var(--theme-popup-border);
+  border-radius: 6px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.steward-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+.steward-name {
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.contributors-page-card:hover .contributors-page-steward {
+  border-color: rgba(128, 128, 128, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Description */
+.contributors-page-description {
+  font-size: .7rem;
+  color: var(--fg);
+  margin-bottom: .5rem;
+  border-bottom: 1px dashed var(--theme-popup-border);
+  padding-bottom: .5rem;
+  text-align: center;
+}
+
+.contributors-page-social {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.contributor-link {
+  color: #586069;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.contributor-link:hover {
+  transform: scale(1.15);
+  color: #0066cc;
+}
+
+/* SVG icon styling */
+.contributor-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Badge Display Section */
+.contributors-page-badges {
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--theme-popup-border);
+  width: 100%;
+  margin-top: auto;
+}
+
+.contributors-page-card:hover .contributors-page-badges {
+  border-top-color: rgba(128, 128, 128, 0.25);
+}
+
+/* Ensure badges are properly centered in compact mode */
+.contributors-page-badges .badge-display {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 0.3rem;
+}
+
+.contributors-page-badges .badges-container {
+  justify-content: center;
+}
+
+/* Elevate card when any tooltip/popup is active */
+.contributors-page-card:has(.badge-wrapper:hover),
+.contributors-page-card:has(.badge-overflow-chip:hover),
+.contributors-page-card:has(.role-badge-overlay:hover),
+.contributors-page-card:has(.avatar-wrapper:hover),
+.contributors-page-card:has(.contributor-hover-card:hover) {
+  z-index: 3;
+  transition-delay: 0s;
+  isolation: auto;
+}
+
+
+/* Push role overlay behind tooltips when badges or overflow chip are hovered */
+.contributors-page-card:has(.badge-wrapper:hover) .role-badge-overlay,
+.contributors-page-card:has(.badge-overflow-chip:hover) .role-badge-overlay {
+  z-index: 0;
+}
+
+/* Ensure badges section sits above the avatar section within the card */
+.contributors-page-badges {
+  position: relative;
+  z-index: 2;
+}
+
+
+.contributors-page-role {
+  font-size: .8rem;
+  color: #586069;
+  margin-bottom: .4rem;
+  font-style: italic;
+}
+
+/* Empty placeholders */
+.empty-placeholder {
+  visibility: hidden;
+  border-color: transparent !important;
+}
+
+.contributors-page-company {
+  font-size: .8rem;
+  color: var(--fg);
+  margin: .4rem 0;
+  font-weight: 500;
+  padding: .25rem .5rem;
+  border: 1px solid var(--theme-popup-border);
+  border-radius: 4px;
+  display: inline-block;
+  text-align: center;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.core-contributors-group .contributors-page-card {
+  border-left: 4px solid #28a745;
+}
+
+.stewards-group .contributors-page-card {
+  border-left: 4px solid #3b82f6;
+}
+
+.contributors-group .contributors-page-card {
+  border-left: 4px solid #a855f7;
+}
+
+/* Contributor hover card (shown when hovering avatar) */
+.contributor-hover-card {
+  position: absolute;
+  /* sit right next to the avatar: 50% of avatar-wrapper (card center) + half-avatar (26px) */
+  left: calc(50% + 46px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 230px;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.875rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  z-index: 999999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, visibility 0.18s ease;
+}
+
+
+/* Show when avatar is hovered — but suppress if the role badge is specifically hovered */
+.avatar-wrapper:hover:not(:has(.role-badge-overlay:hover)) .contributor-hover-card,
+.contributor-hover-card:hover {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.hover-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.625rem;
+}
+
+.hover-card-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+
+.hover-card-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.hover-card-name {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #f9fafb;
+  line-height: 1.2;
+}
+
+/* Job titles wrap onto as many lines as they need. Truncating them to a single
+   line hid most of the text, which is the only place it appears. */
+.hover-card-job-title {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.hover-card-company {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #d1d5db;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hover-card-steward {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #60a5fa;
+  margin-bottom: 0.5rem;
+}
+
+.hover-card-description {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  line-height: 1.5;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 0.5rem;
+}
+
+:root:not([data-vocs-theme='dark']) .contributor-hover-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.06);
+}
+
+:root:not([data-vocs-theme='dark']) .hover-card-name {
+  color: #111827;
+}
+
+:root:not([data-vocs-theme='dark']) .hover-card-job-title {
+  color: #6b7280;
+}
+
+:root:not([data-vocs-theme='dark']) .hover-card-company {
+  color: #374151;
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+:root:not([data-vocs-theme='dark']) .hover-card-steward {
+  color: #2563eb;
+}
+
+:root:not([data-vocs-theme='dark']) .hover-card-description {
+  color: #4b5563;
+  border-top-color: rgba(15, 23, 42, 0.08);
+}
+
+:root:not([data-vocs-theme='dark']) .hover-card-avatar {
+  border-color: rgba(15, 23, 42, 0.15);
+}
+
+/* Corner Accent for elite contributors */
+.corner-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-top-right-radius: 16px;
+  z-index: 1;
+}
+
+.corner-accent svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgba(128, 128, 128, 0.25);
+}
+
+/* Loading Animation */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contributors-page-card {
+  animation: cardFadeIn 0.6s ease-out backwards;
+  animation-delay: calc(var(--card-index) * 0.05s);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contributors-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    padding: 1.5rem 1rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .contributors-page-list {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.625rem;
+    padding: 0;
+  }
+
+  .contributors-page-card {
+    padding: 0.5rem 0.375rem;
+  }
+
+  .contributors-page-avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .role-badge-overlay {
+    right: calc(50% - 28px);
+    width: 20px;
+    height: 20px;
+  }
+
+  .contributor-hover-card {
+    left: calc(50% + 42px);
+  }
+
+  .contributors-page-badges {
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+}

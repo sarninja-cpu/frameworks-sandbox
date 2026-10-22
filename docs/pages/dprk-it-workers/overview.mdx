@@ -1,0 +1,86 @@
+---
+title: "DPRK IT Workers | Security Alliance"
+description: "Defend against DPRK IT Worker insider threats: recognize hiring fraud patterns, harden access, respond after discovery, and reduce sanctions and supply-chain risk."
+tags:
+  - Security Specialist
+  - Operations & Strategy
+  - Community & Marketing
+  - HR
+  - Engineer/Developer
+contributors:
+  - role: wrote
+    users: [blackbigswan]
+  - role: reviewed
+    users: [yaniv, dickson]
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Insider Threats (DPRK)
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: DPRK IT Workers are fraudulently hired remote workers who fund a sanctioned regime and can pivot
+> to theft, extortion, or supply-chain sabotage. Hiring and access control are primary defenses.
+
+This framework is an entry point to organizational and personal risk from insider threats, most commonly associated with
+**DPRK IT Workers**—North Korean IT freelancers using false identities. It is for teams already affected and for teams
+hardening before incident.
+
+Topics covered:
+
+- Who insider threat actors are and what they do
+- How to recognize them
+- How to interact when a candidate or hire is suspect
+- How to mitigate impact and harden defenses
+- Consequences for the organization
+
+## Overview of risks to your organization
+
+1. **Defrauding the company:** payment to someone whose identity is unknown or false
+2. **Weak operational security:** shared credentials, poor source-control hygiene, intentional or accidental access leaks
+3. **Extortion:** pressure for additional payment after access or work completes
+4. **Follow-on hacking:** knowledge of internal systems reused later
+5. **Sanctions violations:** payments that benefit North Korea-related networks can violate sanctions regimes
+6. **Funding of DPRK priorities:** worker pay is routed to regime priorities rather than ordinary freelancers
+7. **Supply-chain compromise:** intentional weaknesses in software depended on by others
+8. **Reputational damage:** brand and user trust
+9. **Asset freeze / loss of financial access:** banks or exchanges may restrict access when sanctions risk is suspected
+10. **Criminal investigations:** law enforcement scrutiny, fines, or charges depending on jurisdiction and facts
+
+## What this framework covers
+
+1. [General Information](/dprk-it-workers/general-information): definitions, operational structure, goals, scale,
+   average profile indicators.
+2. [Techniques, Tactics, and Procedures](/dprk-it-workers/techniques-tactics-and-procedures): how they get jobs,
+   interview signals, post-hire discovery.
+3. [Mitigating DPRK IT Workers](/dprk-it-workers/mitigating-dprk-it-workers): hiring and org hardening, response after
+   discovery, data collection.
+4. [Case Studies](/dprk-it-workers/case-studies): anonymized real deviations from common patterns.
+5. [Summary](/dprk-it-workers/summary): quick-reference checklist of the framework.
+
+## Related frameworks
+
+- [IAM](/iam/overview): least privilege, lifecycle, and revocation after bad hire discovery
+- [Supply Chain](/supply-chain/overview): intentional dependency and delivery risk
+- [OpSec](/opsec/overview): operator and credential hygiene
+- [Awareness](/awareness/overview): social-engineering context for recruiters and hiring managers
+- [Incident Management](/incident-management/overview): investigation and response after compromise
+  ([DPRK attack playbook](/incident-management/playbooks/hacked-dprk) when relevant)
+- [User and Team Security](/user-team-security/overview): staff security posture (when expanded)
+
+## Further reading
+
+- [DPRK Attack Playbook](/incident-management/playbooks/hacked-dprk): response steps once a worker is found inside your
+  organization
+- [OFAC North Korea Information Technology Workers Advisory](https://ofac.treasury.gov/recent-actions/20220516): the
+  sanctions guidance that makes payment a legal risk
+- [Google Threat Intelligence: mitigating the DPRK IT worker threat](https://cloud.google.com/blog/topics/threat-intelligence/mitigating-dprk-it-worker-threat):
+  vendor research on current tactics
+
+---
+
+<ContributeFooter />

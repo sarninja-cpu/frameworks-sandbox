@@ -1,0 +1,66 @@
+---
+title: "Threat Modeling | Security Alliance"
+description: "Threat modeling for Web3 systems: structure assets, threats, and mitigations with STRIDE-oriented analysis and maintain models as systems change."
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - DevOps
+contributors:
+  - role: wrote
+    users: []
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Threat Modeling
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Threat modeling is a structured way to decide which abuses matter before they happen — name
+> assets, threats, and mitigations, then keep the model current as the system changes.
+
+Threat modeling identifies how a system can fail under attack and which controls reduce that risk. In Web3, models must
+cover smart contracts and keys, plus the operators, front ends, oracles, bridges, and admin paths that move or influence
+real
+value.
+
+## Basics
+
+A practical threat model answers:
+
+1. What are we building and where are the trust boundaries?
+2. What assets matter (funds, keys, governance, availability, integrity of data)?
+3. Who might attack them and through which entry points?
+4. Which controls reduce likelihood or impact — and who owns them?
+
+Models go stale. Treat them as living documents tied to design changes and major releases.
+
+## What this framework covers
+
+1. [Create and Maintain Threat Models](/threat-modeling/create-maintain-threat-models): step-by-step modeling, upkeep,
+   and common tools.
+2. [Identify and Mitigate Threats](/threat-modeling/identity-mitigate-threats): STRIDE-oriented enumeration, attack
+   surface analysis, and mitigation patterns.
+
+## Related frameworks
+
+- [Secure Software Development](/secure-software-development/overview)
+- [Security Testing](/security-testing/overview)
+- [External Security Reviews](/external-security-reviews/overview)
+- [Incident Management](/incident-management/overview)
+- [Monitoring](/monitoring/overview)
+
+## Further reading
+
+- [OWASP Threat Modeling](https://owasp.org/www-community/Threat_Modeling)
+- [OWASP Threat Dragon](https://owasp.org/www-project-threat-dragon/)
+- [NIST SP 800-154 Guide to Data-Centric System Threat Modeling](https://csrc.nist.gov/pubs/sp/800/154/ipd)
+
+---
+
+<ContributeFooter />

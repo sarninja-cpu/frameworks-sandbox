@@ -1,0 +1,76 @@
+---
+title: "Treasury Operations Security | SEAL"
+description: "Treasury operations security: classify custodial accounts by impact, register controls, apply enhanced high-risk measures, and verify large cryptocurrency transfers."
+tags:
+  - Treasury Ops
+  - Operations
+  - Risk Management
+contributors:
+  - role: wrote
+    users: [dickson]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Treasury Operations Security
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Treat custodial treasury accounts like cash vaults: classify by impact and access urgency,
+> document who can move funds, and verify every large transfer before it is irreversible.
+
+Treasury operations security provides protocols for organizations that hold significant cryptocurrency through custodial
+accounts. The material covers risk classification, registration and review templates, extra controls for high-impact
+accounts, and step-by-step verification for large receive and send flows.
+
+These guides assume third-party or co-managed custody rather than day-to-day protocol governance multisigs. For protocol
+signer operations, see [Multisig for Protocols](/multisig-for-protocols/overview).
+
+## What is treasury operations security?
+
+Treasury operations security is the set of controls, documents, and procedures that keep custodial holdings available
+when needed and hard to drain when compromised. Classification sets the control bar; registration keeps access and
+configuration auditable; enhanced controls raise the bar for critical balances; transaction verification reduces
+social-engineering and address errors on large moves.
+
+## What this framework covers
+
+1. [Classification Framework](/treasury-operations/classification): dual impact and operational classification plus a
+   security control matrix for approvers, MFA, and whitelist delays.
+2. [Registration Documents](/treasury-operations/registration-documents): templates for account registration, access
+   changes, security configuration, and quarterly review.
+3. [Enhanced Controls for High-Risk Accounts](/treasury-operations/enhanced-controls): additional measures for High and
+   Critical impact accounts, including MPC considerations, policy engines, and monitoring.
+4. [Guide: Large Cryptocurrency Transfers](/treasury-operations/transaction-verification): receive and send protocols with
+   address verification, test transactions, and multi-party confirmation.
+
+## Getting started
+
+1. Classify accounts with the [Classification Framework](/treasury-operations/classification).
+2. Register each account using [Registration Documents](/treasury-operations/registration-documents).
+3. Apply baseline controls from the matrix; add
+   [Enhanced Controls](/treasury-operations/enhanced-controls) for High and Critical impact.
+4. Follow [Transaction Verification](/treasury-operations/transaction-verification) for large transfers.
+
+## Related frameworks
+
+- [Multisig for Protocols](/multisig-for-protocols/overview): protocol and ops multisig design and runbooks
+- [Wallet Security](/wallet-security/overview): key storage, hardware, and transaction simulation
+- [IAM](/iam/overview): identity lifecycle adjacent to custody platform access
+- [Incident Management](/incident-management/overview): response when custody or treasury access is abused
+- [OpSec](/opsec/overview): personnel and physical practices around high-value ceremonies
+- [SEAL 911 Cert — Treasury Ops](/certs/sfc-treasury-ops): certification surface for treasury operations
+
+## Further reading
+
+- Child pages linked above and the transaction verification guide for procedure detail
+- Custodian SOC reports and platform policy-engine docs for your chosen provider
+
+---
+
+<ContributeFooter />

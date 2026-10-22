@@ -1,0 +1,66 @@
+---
+title: "Secure Code Repositories | SEAL"
+description: "Harden code repositories with RBAC, MFA, branch protection, audit logs, commit signing, secure backups, and security checks in CI/CD."
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - DevOps
+contributors:
+  - role: wrote
+    users: []
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Secure Code Repositories and Version Control
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Repository compromise is supply-chain compromise. Enforce least privilege, strong authentication,
+> protected branches, and review-required merges.
+
+Secure repositories and version control practices protect against unauthorized access and preserve integrity of the
+code that becomes production artifacts.
+
+## Best practices for repositories
+
+1. **Access control**
+   - Limit who can view, modify, and administer repositories.
+   - Use role-based access control (RBAC) aligned to job function ([IAM](/iam/overview)).
+2. **Multi-factor authentication (MFA)**
+   - Require MFA for all human access to the forge.
+   - Prefer hardware-backed second factors over SMS where available.
+3. **Branch protection**
+   - Protect default and release branches against force-push and unreviewed merges.
+   - Require reviews (and CI green status) before merge to protected branches.
+4. **Audit logs**
+   - Enable audit logging for administrative and access-sensitive events.
+   - Review logs on a cadence and on anomaly alerts.
+
+## Version control practices
+
+1. **Commit signing**
+   - Prefer signed commits (for example OpenPGP/SSH signing) so authors are cryptographically attributable.
+   - Enforce signing policy on critical repositories where tooling allows.
+2. **Regular backups**
+   - Back up repository data so history is not a single-host failure mode.
+   - Store backups with access controls comparable to production source.
+3. **CI/CD integration**
+   - Run security checks in continuous integration before deployable artifacts leave the pipeline
+     ([DevSecOps](/devsecops/overview), [Security Automation](/security-automation/overview)).
+   - Deploy only builds that passed required checks and came from protected history.
+
+## Further reading
+
+- [GitHub — About protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)
+- [GitLab — Protected branches](https://docs.gitlab.com/ee/user/project/protected_branches.html)
+- [Supply Chain framework](/supply-chain/overview)
+
+---
+
+<ContributeFooter />

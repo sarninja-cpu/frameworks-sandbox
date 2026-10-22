@@ -1,0 +1,95 @@
+---
+title: "Twitter/X Security | Security Alliance"
+description: "Protect project X (Twitter) accounts from SIM swapping and OAuth abuse: remove phone recovery paths, prefer strong MFA, audit apps and sessions"
+tags:
+  - Community & Marketing
+contributors:
+  - role: wrote
+    users: [mattaereal, zedt3ster, fredriksvantes, auditware, nftdreww]
+  - role: reviewed
+    users: [mattaereal, nftdreww]
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# X (Twitter)
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: A project X account can broadcast scams in one post. Prefer strong multi-factor authentication
+> (MFA), remove SIM-swapable recovery paths, and revoke stale OAuth access.
+
+X account security spans authentication hardening, session management, third-party app access, and recovery settings—
+each covered in depth in the [X (Twitter) Security Guide](/guides/account-management/twitter). Use this page to find the
+right section.
+
+## The community manager's role in security
+
+A community manager running a project's X account is a high-value Web3 target. The account is public-facing, often
+verified, and carries follower trust. Posted links get clicked; announcements get acted on. That reach is what attackers
+want.
+
+Unlike Discord—where compromise often still navigates roles and permissions—a taken-over X account can do damage in a
+single post. Scam links, fake token launches, and fraudulent airdrop announcements can reach the full audience from an
+account followers already trust. The window between compromise and widespread harm is measured in minutes.
+
+X account takeovers in Web3 often follow documented patterns: SIM swapping against SMS-based MFA, phishing via fake
+login screens, and exploitation of forgotten third-party OAuth tokens that retain access long after the app was last
+used. These paths do not require exotic vulnerabilities. The linked guide documents preventable controls.
+
+### Why following this guide is not optional
+
+A common failure mode is configuration drift. An account secured at setup gradually accumulates risk: a phone number
+added for convenience, a scheduling tool connected years ago with broad permissions, a session left open on an old
+device. Each is a door. Attackers look for unlocked ones.
+
+Community managers are also a last line of defense before followers are exposed. Strong internal security does not help
+if a single social account is the weak outbound path. The guide closes those gaps in a repeatable way.
+
+### What is at stake
+
+| Risk | Consequence |
+| --- | --- |
+| **Account takeover via SIM swap** | Attacker ports the phone number, resets the X password, and locks operators out |
+| **Phishing via fake login screen** | Credentials harvested; account access transfers before detection |
+| **Third-party app token abuse** | Old OAuth tokens from connected apps grant persistent access without the password |
+| **Retained access post-recovery** | Connected accounts left in place allow re-entry after a password change |
+| **Scam broadcast to followers** | Fake links or malicious airdrops posted from a trusted account |
+| **Reputational damage** | Public compromise is captured quickly; trust rebuild is slow |
+
+The guide addresses these with specific controls that do not require deep technical expertise.
+
+## What the guide covers
+
+The guide applies to every team member with access to the account, not only the primary holder.
+
+| Audience | What it covers |
+| --- | --- |
+| **All account holders** | MFA method selection, phone number removal, email security, backup codes |
+| **Account admins** | Password reset protection, connected account audit, third-party app permissions, active session review |
+
+## Topic index
+
+| Topic | Summary | Guide section |
+| --- | --- | --- |
+| **MFA method** | Prefer authenticator apps or hardware security keys; remove SMS MFA when feasible (SIM-swap risk) | [MFA](/guides/account-management/twitter#account-security-checklist) |
+| **Phone number removal** | Remove the phone number from the account when operationally possible—primary SIM-swap vector | [Phone number](/guides/account-management/twitter#account-security-checklist) |
+| **Email security** | Prefer a non-obvious email not tied to public identity; enable password reset protection | [Email](/guides/account-management/twitter#1-email-security) |
+| **Password reset protection** | Require email or controlled confirmation before reset to block weak recovery paths | [Reset protection](/guides/account-management/twitter#account-security-checklist) |
+| **Connected accounts** | Review and remove third-party login linkages that can retain compromise | [Connected accounts](/guides/account-management/twitter#account-security-checklist) |
+| **Third-party app permissions** | Audit and revoke OAuth for unused apps; tokens remain until revoked | [App permissions](/guides/account-management/twitter#best-practices--additional-tips) |
+| **Active session review** | Sign out unrecognized devices; treat unfamiliar sessions as potential persistence | [Sessions](/guides/account-management/twitter#best-practices--additional-tips) |
+
+For step-by-step procedures, see the [X (Twitter) Security Guide](/guides/account-management/twitter).
+
+## Further reading
+
+- [X (Twitter) Security Guide](/guides/account-management/twitter)
+- [X Help Center — Account security](https://help.x.com/en/safety-and-security/account-security-tips)
+
+---
+
+<ContributeFooter />

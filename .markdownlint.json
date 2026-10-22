@@ -1,0 +1,58 @@
+{
+  "default": true,
+  "MD013": {
+    "line_length": 120,
+    "code_blocks": false,
+    "tables": false
+  },
+  "MD024": {
+    "siblings_only": true
+  },
+  "MD026": false,
+  "MD025": false,
+  "MD033": {
+    "allowed_elements": [
+      "details",
+      "summary",
+      "br",
+      "img",
+      "sup",
+      "sub",
+      "kbd",
+      "div",
+      "p",
+      "em",
+      "html",
+      "head",
+      "meta",
+      "body",
+      "strong",
+      "video",
+      "source",
+      "TagList",
+      "AttributionList",
+      "TagProvider",
+      "TagFilter",
+      "ContributeFooter",
+      "Contributors",
+      "CertifiedProtocols",
+      "CertList",
+      "CertifiedProtocolsWrapper",
+      "MermaidRenderer",
+      "DevOnly",
+      "BadgeLegend",
+      "ExportAllCerts",
+      "AttackSurfaceDashboard",
+      "SecurityMap",
+      "GovernanceSDLCPipeline",
+      "ChecklistItem",
+      "Checklist",
+      "GovernanceChecklistItem"
+    ]
+  },
+  "MD037": false,
+  "MD040": false,
+  "MD046": false,
+  "MD041": false,
+  "MD051": false
+}

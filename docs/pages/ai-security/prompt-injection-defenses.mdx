@@ -1,0 +1,59 @@
+---
+title: "Prompt Injection Defenses | SEAL"
+description: "Prompt injection risks in agentic AI and runtime controls for secure input interpretation. Constrain and classify inputs at the execution boundary—do"
+tags:
+  - Engineer/Developer
+  - Security Specialist
+  - Operations & Strategy
+contributors:
+  - role: wrote
+    users: [munamwasi, jubos, masterfung]
+  - role: reviewed
+    users: [mattaereal]
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter } from '../../../components'
+
+# Prompt Injection Defenses
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Prompt injection succeeds because models treat text as instructions. Constrain and classify
+> inputs at the execution boundary—do not rely on boilerplate system prompts alone.
+
+As LLMs execute based on statistical patterns rather than explicit checks, malicious or cleverly structured prompts can
+cause the model to ignore safety instructions, reveal sensitive data, or perform unintended actions. Effective
+mitigation requires intercepting and sanitizing inputs at the execution layer rather than relying solely on upstream
+policies or prompt templates. Security controls should classify and constrain inputs before they are interpreted by a
+model.
+
+## On-Chain Data as Untrusted Input
+
+In smart contract tooling, DAO governance assistants, and wallet agents, prompt injection can lead to incorrect
+transaction construction or misleading governance actions. Inputs originating from on-chain data or community
+proposals should be treated as untrusted by default.
+
+## Consider using
+
+- CrowdStrike Falcon AI Detection and Response - tracks 150+ prompt injection techniques
+- Mighty - multimodal prompt injection security API at model ingress and egress
+- Prompt Security - runtime enforcement for agentic AI with cross-agent policy controls
+- Lakera Guard - real-time prompt injection detection with dynamic threat intelligence
+- Robust Intelligence (Cisco) - AI validation plus AI firewall guardrail enforcement
+- Imperva AI Application Security - LLM-focused protection beyond traditional WAF assumptions
+
+## Further reading
+
+- [AI Security overview](/ai-security/overview): how the pages of this framework fit together
+- [Execution-Path Enforcement](/ai-security/execution-path-enforcement): where allow, warn, and block decisions belong
+- [Data Exfiltration via Generative Systems](/ai-security/data-exfiltration-via-generative-systems): the common payoff
+  of a successful injection
+- [The lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/): why private data, untrusted
+  content, and external communication must not combine
+
+---
+
+<ContributeFooter />

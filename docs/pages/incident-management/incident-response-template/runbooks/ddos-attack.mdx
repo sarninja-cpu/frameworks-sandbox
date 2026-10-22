@@ -1,0 +1,204 @@
+---
+title: "Runbook: DDoS Attack | Security Alliance"
+description: "This is an example runbook. Review and customize for your protocol before use. Add your specific CDN/WAF provider commands and escalation contacts."
+tags:
+  - Security Specialist
+  - Operations & Strategy
+  - DevOps
+contributors:
+  - role: wrote
+    users: [isaac]
+  - role: reviewed
+    users: []
+  - role: fact-checked
+    users: []
+---
+
+import { TagList, AttributionList, ContributeFooter, Checklist } from '../../../../../components'
+
+# Runbook: DDoS Attack
+
+<TagList tags={frontmatter.tags} />
+<AttributionList contributors={frontmatter.contributors} />
+
+> 🔑 **Key Takeaway**: Under DDoS, engage your CDN/WAF play, protect origin capacity, and
+> separate availability response from security compromise until evidence says otherwise.
+
+**This is an example runbook.** Review and customize for your protocol before use. Add your specific
+CDN/WAF provider commands and escalation contacts.
+
+## Quick Reference
+
+| Field | Value |
+| ----- | ----- |
+| **Typical Severity** | P2-P3 |
+| **Primary Responder** | Infrastructure SME |
+| **Last Updated** | [Date] |
+| **Owner** | [Name] |
+
+## Identification
+
+### Symptoms
+
+<Checklist id="symptoms">
+- [ ] Website/API unresponsive or slow
+- [ ] Monitoring shows traffic spike
+- [ ] CDN/hosting alerts
+- [ ] Error rate increase
+- [ ] Legitimate requests timing out
+</Checklist>
+
+### Differentiation
+
+| Symptom | Likely Cause |
+| ------- | ------------ |
+| Traffic spike + slow response | DDoS |
+| Traffic normal + slow response | Application issue |
+| Single endpoint affected | Targeted attack or bug |
+| All traffic from few IPs | Simple attack, easy to block |
+| Distributed traffic | Sophisticated DDoS |
+
+## Immediate Actions
+
+### Step 1: Confirm DDoS
+
+**Why:** Distinguish from application issues
+
+<Checklist id="step-1-confirm-ddos">
+- [ ] Check CDN/WAF dashboards
+- [ ] Review traffic patterns
+- [ ] Check if specific endpoints targeted
+</Checklist>
+
+### Step 2: Enable DDoS Protection
+
+**Why:** Use provider-level mitigation
+
+For Cloudflare:
+
+```
+[Document your Cloudflare mitigation steps]
+```
+
+For AWS:
+
+```
+[Document your AWS Shield steps]
+```
+
+### Step 3: Assess Impact
+
+<Checklist id="step-3-assess-impact">
+- [ ] Which services affected?
+- [ ] Are critical functions available?
+- [ ] User impact level?
+</Checklist>
+
+## Investigation
+
+### Key Questions
+
+<Checklist id="key-questions">
+- [ ] Attack type (volumetric, protocol, application layer)?
+- [ ] Targeted endpoints?
+- [ ] Attack source patterns?
+- [ ] Why now? (retaliation, extortion, distraction?)
+</Checklist>
+
+### Data to Collect
+
+| Data | Source |
+| ---- | ------ |
+| Traffic volume | CDN/hosting dashboard |
+| Request patterns | Access logs |
+| Source IPs | WAF/firewall logs |
+| Targeted paths | Application logs |
+
+## Mitigation
+
+### CDN/WAF Level
+
+1. Enable "Under Attack" mode if available
+2. Increase security level
+3. Add rate limiting rules
+4. Block obvious attack patterns
+5. Enable bot protection
+
+### Application Level
+
+1. Enable rate limiting
+2. Add CAPTCHA to affected endpoints
+3. Cache aggressively
+4. Disable non-essential features temporarily
+
+### DNS Level
+
+1. Reduce TTL for flexibility
+2. Consider geo-blocking if attack is regional
+3. Failover to backup if available
+
+## Escalation
+
+<Checklist id="escalation">
+- [ ] [CDN/hosting
+      provider](/incident-management/incident-response-template/contacts#infrastructure-vendors) -
+      for attack mitigation support
+- [ ] [Decision Makers](/incident-management/incident-response-template/contacts#decision-makers) - if extended outage
+</Checklist>
+
+## Recovery
+
+### Attack Subsiding
+
+1. Monitor traffic patterns
+2. Gradually reduce protection levels
+3. Watch for resurgence
+4. Keep enhanced monitoring for 24-48 hours
+
+### Post-Attack
+
+<Checklist id="post-attack">
+- [ ] Review logs for attack details
+- [ ] Update protection rules
+- [ ] Document attack patterns
+- [ ] Consider permanent mitigations
+</Checklist>
+
+## Communication
+
+### Internal
+
+- Status updates every 30 min during active attack
+- Clear when degraded vs. fully down
+
+### External (if needed)
+
+> We're experiencing elevated traffic that's affecting site performance. We're actively mitigating and will provide updates.
+
+Usually not needed for brief DDoS attacks. Avoid drawing attention.
+
+## Prevention
+
+After resolving, consider:
+
+<Checklist id="prevention">
+- [ ] Always-on DDoS protection
+- [ ] Rate limiting by default
+- [ ] Geographic restrictions if appropriate
+- [ ] Improved caching
+- [ ] Backup/failover infrastructure
+</Checklist>
+
+## Further reading
+
+- [Runbooks overview](/incident-management/incident-response-template/runbooks/overview):
+  how the runbooks in this section fit together
+- [Third-Party Outage](/incident-management/incident-response-template/runbooks/third-party-outage):
+  the adjacent availability scenario
+- [DDoS Protection](/infrastructure/ddos-protection): controls to have in place beforehand
+- [Incident Response Policy](/incident-management/incident-response-template/incident-response-policy):
+  severity levels, roles, and escalation
+
+---
+
+<ContributeFooter />
