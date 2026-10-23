@@ -159,10 +159,9 @@ Key rotation limits the damage window if a key is compromised.
 - Protect GPG private keys with a strong passphrase and store the revocation
   certificate in a secure, offline location (encrypted USB, password manager).
 
-### 5b. Backup and recover keys safely
+### 5b. Backup and recover keys safely test from wizard
 
-Without proper backup, a lost key means lost identity. Without secure storage,
-a stolen key means forged commits.
+Without proper backup, a lost key means lost identity. Without secure storage, a stolen key means forged commits.
 
 **Backup the master key:**
 
@@ -184,32 +183,27 @@ gpg --gen-revoke YOUR_KEYID > revocation-certificate.asc
 # publishing the revocation certificate invalidates the compromised key.
 ```
 
-**Recovery test:** Periodically verify you can decrypt using your backup
-without the original key. Store the backup passphrase separately from the backup
-medium.
+**Recovery test:** Periodically verify you can decrypt using your backup without the original key. Store the backup
+passphrase separately from the backup medium.
 
 ### 6. Publish and verify public keys
 
-A signature is meaningless if the verifying party cannot obtain the correct
-public key.
+A signature is meaningless if the verifying party cannot obtain the correct public key.
 
-- Upload your public key to GitHub (Settings > SSH and GPG keys) and to a
-  public keyserver (keys.openpgp.org, keyserver.ubuntu.com).
+- Upload your public key to GitHub (Settings > SSH and GPG keys) and to a public keyserver (keys.openpgp.org,
+  keyserver.ubuntu.com). wizard test
 - Use the same key across all platforms so that the identity is consistent.
-- In CI, pin trusted public key fingerprints in the pipeline configuration.
-  Reject signatures from unknown keys.
+- In CI, pin trusted public key fingerprints in the pipeline configuration. Reject signatures from unknown keys.
 
 ### 6b. Document code signing procedures
 
-Maintain clear, accessible documentation so that every team member can set up and
-maintain signing correctly.
+Maintain clear, accessible documentation so that every team member can set up and maintain signing correctly.
 
-- Onboarding guide: how to generate a GPG key, configure git to sign commits,
-  upload to GitHub, and set up a Yubikey for signing.
-- Troubleshooting: common issues (expired keys, wrong key selected, gpg-agent
-  not running) with solutions.
-- Policy: rotation schedule, revocation procedures, acceptable signing methods
-  (GPG, SSH, S/MIME), and enforcement mechanism.
+- Onboarding guide: how to generate a GPG key, configure git to sign commits, upload to GitHub, and set up a Yubikey for
+  signing.
+- Troubleshooting: common issues (expired keys, wrong key selected, gpg-agent not running) with solutions.
+- Policy: rotation schedule, revocation procedures, acceptable signing methods (GPG, SSH, S/MIME), and enforcement
+  mechanism. test
 
 ## Why is it important
 
