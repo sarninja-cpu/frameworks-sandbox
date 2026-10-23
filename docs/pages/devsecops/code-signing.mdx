@@ -24,18 +24,18 @@ import { TagList, AttributionList, ContributeFooter } from '../../../components'
 > 🔑 **Key Takeaway**: Sign every commit and tag with GPG (or SSH/SMIME),
 > enforce signature verification in CI and branch protection, rotate keys
 > regularly, and bind developer identity to hardware-backed MFA so that
-> every change in the repository is traceable to a verified human.
+> every change in the repository is traceable to a verified human. Test for stale forks for wizard
 
 Code signing guarantees **integrity** (the code has not been tampered with) and
 **authenticity** (the change came from the claimed author). Without signing, an
 attacker who obtains push access can inject malicious code that is
 indistinguishable from legitimate commits. In Web3 projects, where a single
 unverified commit could introduce a backdoor into smart contract deployment
-tooling or steal signing keys, the stakes are especially high.
+tooling or steal signing keys, the stakes are especially high. test
 
 ## Practical guidance
 
-### 1. Require signed commits on protected branches
+### 1. Require signed commits on protected branches test
 
 Enable GitHub's **Require signed commits** branch protection rule on `main`,
 `develop`, and any release branches. This rejects any push that does not carry
